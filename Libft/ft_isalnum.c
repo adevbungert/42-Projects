@@ -1,0 +1,7 @@
+int		ft_isdigit(char c)
+{
+	if ((ft_isdigit(c) == 1) && (ft_isalpha(c) == 1))
+		return (1);
+	else
+		return (0);
+}
