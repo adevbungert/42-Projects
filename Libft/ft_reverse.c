@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 11:39:51 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 14:00:59 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 16:20:18 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 16:25:50 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+char	*ft_streverse(char *s)
 {
-	write(1, &c, 1);
+	int i;
+	int j;
+	char c;
+
+	i = 0;
+	j = ft_strlen(s);
+	while (i < j)
+	{
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+		i++;
+		j--;
+	}
+	return (s);
 }

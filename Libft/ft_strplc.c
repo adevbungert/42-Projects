@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strplc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 11:39:51 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 14:00:59 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 11:01:09 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 11:09:11 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+char	*ft_strplc(char *s, char c, char c_new)
 {
-	write(1, &c, 1);
+	while (*s)
+	{
+		if (*s == c)
+			*s = c_new;
+		s++;
+	}
+	return (s);
 }

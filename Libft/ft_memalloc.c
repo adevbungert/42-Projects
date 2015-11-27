@@ -1,12 +1,23 @@
-#include <stdlib.h>
-void	*memset(void *b, int c, size_t len);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/25 11:10:34 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 13:52:35 by abungert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memalloc(size_t size)
 {
-	void	*b;
+	unsigned char	*b;
 
-	if((b =(void *)malloc(sizeof(size))) == 0)
+	if((b =(unsigned char *)malloc(sizeof(*b) * size)) == NULL)
 		return NULL;
 	b = ft_bzero(b, size);
-	return (b);
+	return ((void *)b);
 }

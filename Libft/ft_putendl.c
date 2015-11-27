@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 11:39:51 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 14:00:59 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 16:57:13 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 16:58:50 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putendl(char const *s)
 {
-	write(1, &c, 1);
+	ft_putstr(s);
+	ft_putchar('\n');
 }

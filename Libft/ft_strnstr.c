@@ -1,26 +1,34 @@
-char	*ft_strstr(const char *s1, const char *s2, int n)
-{
-	int i;
-	int j;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:32:42 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 13:44:48 by abungert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-	if (!s2)
-		return (s1);
-	while (s1[i] != '\0' || i <= n)
+#include "libft.h"
+
+char	*ft_strnstr(const char *s1, const char *s2, int n)
+{
+	size_t s2_len;
+	const char	*str = s1;
+
+	if (*s2 == '\0')
+		return ((char *)str);
+	s2_len = ft_strlen(s2);
+	while (*str && (n != 0))
 	{
-		j = 0;
-		if (s2[j] == s1[i])
+		n--;
+		if ((str = ft_strchr(str, *s2)) != NULL)
 		{
-			while ((s2[j] == s1[i]) && (s2[j] != '\0' || s1[i] != '\0'))
-			{
-				i++;
-				j++;
-			}
-			if (s2[j] == '\0')
-				return (s1[i]);
+			if ((ft_strncmp(str, s2, s2_len)) == 0)
+				return ((char *) str);
 		}
-		else
-			i++;
+		str++;
 	}
 	return NULL;
 }

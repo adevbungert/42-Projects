@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 11:39:51 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 14:00:59 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 16:27:48 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 16:41:42 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+int		ft_power(int power, int nb)
 {
-	write(1, &c, 1);
+	if (power == 0)
+		return (1);
+	return (nb * ft_power((power - 1), nb));
 }

@@ -3,32 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 11:52:21 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/24 11:52:37 by abungert         ###   ########.fr       */
+/*   Updated: 2015/11/26 11:54:10 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str);
+#include "libft.h"
 
-char	*ft_strcat(char *dest, char	*src)
+char	*ft_strcat(char *s1, char *s2)
 {
-	int	i;
-	int j;
+	char	*s;
 
-	i = 0;
-	j = 0;
-	if((dest = malloc((char *)sizeof(char * (ft_strlen(dest) + ft_strlen(src))))) == 0)
-		return NULL;
-	while (dest[i])
-		i++;
-	while (src[j])
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	s = s1;
+	while (*s != '\0')
+		s++;
+	ft_strcpy(s, s2);
+	return (s1);
 }

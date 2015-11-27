@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 10:43:56 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/24 10:49:16 by abungert         ###   ########.fr       */
+/*   Updated: 2015/11/25 17:01:49 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "libft.h"
 
 void	ft_putnbr(int n)
 {

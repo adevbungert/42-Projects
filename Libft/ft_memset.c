@@ -1,12 +1,28 @@
-void	*ft_memset(void *b, int c, size_t len)
-{
-	int	i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/25 11:11:33 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 14:00:11 by abungert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-	while ((b[i] != '\0') && (i <= len))
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t len)
+{
+	unsigned char	*uc1;
+	unsigned char	uc2;
+
+	uc1 = s;
+	uc2 = c;
+	while (len != 0)
 	{
-		b[i] = c;
-		i++;
+		len--;
+		*uc1++ = uc2;
 	}
-	return (b);
+	return (s);
 }

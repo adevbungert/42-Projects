@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 11:52:21 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/24 11:52:37 by abungert         ###   ########.fr       */
+/*   Updated: 2015/11/26 11:54:18 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str);
+#include "libft.h"
 
-char	*ft_strncat(char *dest, char *src, int n)
+char	*ft_strncat(char *dest, char *src, size_t n)
 {
-	int i;
-	int j;
+	char *s;
 
-	i = 0;
-	j = 0;
-	if((dest = malloc((char *)sizeof(char * (ft_strlen(dest) + n)))) == 0)
-		return NULL;
-	while (dest[i])
-		i++;
-	while (src[j] && n <= 0)
+	s = dest;
+	while (*s != '\0')
+		s++;
+	while ((n != 0) && *src)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		*s = *src;
 		n--;
+		s++;
+		src++;
 	}
-	dest[i] = '\0';
+	if (*s != '\0')
+		*s = '\0';
 	return (dest);
 }

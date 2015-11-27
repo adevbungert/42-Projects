@@ -1,20 +1,27 @@
-*char	ft_strrchr(const char *str, int c)
-{
-	int i;
-	int j;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:32:42 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/27 14:22:52 by abungert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
+{
+	const char	*last = NULL;
+
+	if (c == '\0')
+		return (ft_strchr(s, c));
+	while ((s = ft_strchr(s, c)))
 	{
-		if (str[i] == c)
-			j = i;
-		i++;
+		last = s;
+		s++;
 	}
-	if (c == 0)
-		return (str[i]);
-	else if (j != 0)
-		return (str[j]);
-	else
-		return NULL;
+	return ((char *)last);
 }
