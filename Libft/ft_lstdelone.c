@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:59:52 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/30 15:14:01 by abungert         ###   ########.fr       */
+/*   Created: 2015/12/02 10:49:08 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/03 13:11:32 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	void *const str = dst;
-
-	if (dst > src)
-		while (len-- > 0)
-			*((unsigned char *)(dst + len)) = *((unsigned char *)(src + len));
-	else if (dst < src)
-		while (len-- > 0)
-			*((unsigned char *)dst++) = *((unsigned char *)src++);
-	return (str);
+	(del)((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 18:32:42 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/01 17:58:16 by abungert         ###   ########.fr       */
+/*   Created: 2015/12/02 11:30:46 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/03 13:09:22 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char const	*str1;
-	char const	*str2;
+	t_list		*new_lst;
+	t_list		*tmp;
+	t_list		*stock;
 
-	if (!s1 || !s2)
+	new_lst = NULL;
+	if (!lst || !f)
 		return (NULL);
-	str2 = s2;
-	while (*s1 != '\0')
+	tmp = f(lst);
+	if (!(new_lst = ft_lstnew(tmp->content, tmp->content_size)))
+		return (NULL);
+	stock = new_lst;
+	lst = lst->next;
+	while (lst)
 	{
-		str1 = s1;
-		while (*s2 != '\0' && *s1 == *s2)
-		{
-			++s1;
-			++s2;
-		}
-		if (*s2 == '\0')
-			return ((char *)str1);
-		s1 = str1 + 1;
-		s2 = str2;
+		tmp = f(lst);
+		if (!(stock->next = ft_lstnew(tmp->content, tmp->content_size)))
+			return (NULL);
+		stock = stock->next;
+		lst = lst->next;
 	}
-	return (*s2 == '\0' ? (char *)s1 : NULL);
+	return (new_lst);
 }

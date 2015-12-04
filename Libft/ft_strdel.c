@@ -6,20 +6,13 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 16:55:06 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/26 17:29:33 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/01 17:45:06 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include "libft.h"
 
 void	ft_strdel(char **as)
 {
-	char	**s;
-
-	s = as;
-	while (**s)
-	{
-		free(*s);
-		*s++ = NULL;
-	}
+	ft_memdel((void **)as);
 }

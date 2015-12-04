@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strreverse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:59:52 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/30 15:14:01 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 16:20:18 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:55:18 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strrev(char *s)
 {
-	void *const str = dst;
+	int		i;
+	int		j;
+	char	c;
 
-	if (dst > src)
-		while (len-- > 0)
-			*((unsigned char *)(dst + len)) = *((unsigned char *)(src + len));
-	else if (dst < src)
-		while (len-- > 0)
-			*((unsigned char *)dst++) = *((unsigned char *)src++);
-	return (str);
+	i = 0;
+	j = ft_strlen(s);
+	while (i < j)
+	{
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+		i++;
+		j--;
+	}
+	return (s);
 }

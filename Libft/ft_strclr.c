@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 11:13:44 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/26 17:27:33 by abungert         ###   ########.fr       */
+/*   Updated: 2015/11/30 15:39:38 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ void	ft_strclr(char *s)
 {
 	char *str;
 
-	str = s;
-	while (*str)
+	if (s)
 	{
-		*str++ = '\0';
+		str = s;
+		while (*str)
+		{
+			*str++ = '\0';
+		}
 	}
 }

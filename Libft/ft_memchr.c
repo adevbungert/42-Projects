@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 15:04:08 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 13:54:07 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/01 17:38:04 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)src);
 		src++;
 	}
-	return NULL;
+	return (NULL);
 }

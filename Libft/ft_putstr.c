@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 16:53:35 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 16:57:44 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/01 17:45:34 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_putstr(const char *s)
 {
 	char const *str = s;
+
 	while (*str != '\0')
 	{
 		ft_putchar(*str);

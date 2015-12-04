@@ -6,20 +6,20 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 11:11:21 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 14:06:31 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/01 17:39:58 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	ft_memdel(void	**ap)
+void	ft_memdel(void **ap)
 {
-	unsigned char	**ucap;
-
-	ucap = (unsigned char **)ap;
-	while(**ucap)
+	if (ap && *ap)
 	{
-		free (*ucap);
-		*ucap++ = NULL;
+		if (*ap != NULL)
+		{
+			free(*ap);
+			*ap = NULL;
+		}
 	}
 }

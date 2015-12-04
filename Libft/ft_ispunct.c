@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_ispunct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:59:52 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/30 15:14:01 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/30 10:20:41 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:36:04 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_ispunct(int c)
 {
-	void *const str = dst;
-
-	if (dst > src)
-		while (len-- > 0)
-			*((unsigned char *)(dst + len)) = *((unsigned char *)(src + len));
-	else if (dst < src)
-		while (len-- > 0)
-			*((unsigned char *)dst++) = *((unsigned char *)src++);
-	return (str);
+	return ((' ' < c && c < '0')
+				|| ('9' < c && c < 'A')
+				|| ('Z' < c && c < 'a')
+				|| ('z' < c && c < '~'));
 }

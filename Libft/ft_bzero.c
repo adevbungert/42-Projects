@@ -6,21 +6,14 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 12:03:26 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 13:49:01 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/03 13:25:32 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*uc;
-
-	uc = s;
-	while (n != 0)
-	{
-		n--;
-		*uc = 0;
-	}
-	return (s);
+	while (n-- > 0)
+		*(char*)s++ = 0;
 }

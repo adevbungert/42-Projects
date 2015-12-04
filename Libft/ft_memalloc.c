@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 11:10:34 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/27 13:52:35 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/01 17:28:05 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 void	*ft_memalloc(size_t size)
 {
-	unsigned char	*b;
+	void	*str;
 
-	if((b =(unsigned char *)malloc(sizeof(*b) * size)) == NULL)
-		return NULL;
-	b = ft_bzero(b, size);
-	return ((void *)b);
+	if (!(str = malloc(size)))
+		return (NULL);
+	while (size > 0)
+	{
+		*((unsigned char *)(str + size)) = 0;
+		size--;
+	}
+	return (str);
 }

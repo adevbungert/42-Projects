@@ -6,13 +6,13 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 18:32:42 by abungert          #+#    #+#             */
-/*   Updated: 2015/11/25 15:25:58 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/01 17:23:06 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isascii(char c)
+int		ft_isascii(int c)
 {
 	if (c >= 0 && c <= 0177)
 		return (1);
