@@ -25,18 +25,15 @@ int	static		check_eol_tab(char **tab, char **line)
 
 	i = 0;
 	tmp = *tab;
-    printf("\n---Je rentre dans tab---\n");
 	while (tmp[i])
 	{
-        printf("\n---Je rentre dans while de tab---\n");     
 		if (tmp[i] == '\n' || tmp[i] == '\0')
 		{
-            printf("\n---Je rentre dans if de tab---\n");
 			if (!(*line = ft_strsub(tmp, 0, i)))
 				return (-1);
-            if (tmp[i] == '\0')
-                return (0);
-			if(!(tmp = ft_strdup(&(tmp[i + 1]))))
+			if (tmp[i] == '\0')
+				return (0);
+			if(!((*tab) = ft_strdup(&(tmp[i + 1]))))
 				return (-1);
 			return (1);
 		}
@@ -48,28 +45,35 @@ int	static		check_eol_tab(char **tab, char **line)
 int static		check_eol_buf(char **tab, char **line, char *BUF)
 {
 	int		i;
+	char	*tmp;
 
 	i = 0;
-    printf("\n---Je rentre dans buf---\n");
 	while (BUF[i])
 	{
-        printf("\n---Je rentre dans while de buf---\n");
 		if (BUF[i] == '\n' || BUF[i] == '\0')
 		{
-            printf("\n---Je rentre dans if de buf---\n");
-            printf("\n--i = %d-- --BUFF[i - 1] = %c--\n", i, BUF[i-1]);
-			if(!(*line = ft_strsub(BUF, 0, i)))
-				return (-1);
-			if(!(*tab = ft_strjoin(*tab, &BUF[i + 1])))
-				return (-1);
-            printf("\n>>>>*BUF = %s<<<<\n", &BUF[i + 1]);
+			if (tab)
+			{
+				tmp = ft_strsub(BUF, 0, i);
+				if(!(*line = ft_strjoin(*tab, tmp)))
+					return (-1);
+			}
+			if (BUF[i + 1])
+			{
+				if(!(*tab = ft_strdup(&(BUF[i + 1]))))
+					return (-1);
+			}
+			else
+				ft_strdel(tab);
 			return (1);
 		}
 		i++;
 	}
 	if (i > 0)
+	{
 		if (!(*tab = ft_strjoin(*tab, BUF)))
 			return (-1);
+	}
 	return (0);
 }
 
@@ -94,12 +98,23 @@ int				get_next_line(int const fd, char **line)
 			if (ret == -1)
 				return (-1);
 			BUF[ret] = '\0';
+			// ft_putstr(" ---- ");
+			// ft_putstr(BUF);
+			// ft_putendl(" ------- ");
 		}
 		free(BUF);
 		BUF = NULL;
 	}
-	if (ft_strlen(tab) != 0)
+	// printf("TAB --->%s<--- \n", tab);
+	// printf("size %d\n", (int)ft_strlen(tab));
+	if (!tab || ft_strlen(tab) != 0)
+	{
+		// printf("HELLOOOOOOOOOOO\n");
 		return (1);
+	}
 	else
+	{
+		// printf("MERDEEEEEEEEEE\n");
 		return (0);
+	}
 }

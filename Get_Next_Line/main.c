@@ -25,10 +25,16 @@ int		main(void)
 	{
 		//ret = get_next_line(fd, &line);
 		//printf("%s\n", line);
-		while (ret != 0 || ret != -1)
+		while (ret != 0 && ret != -1)
 		{
-			ret = get_next_line(fd, &line);
-			printf("%s\n", line);
+			ret = get_next_line(42, &line);
+			// ft_putstr(" ******* ");
+			// 	ft_putstr(line);
+			// ft_putendl(" ****** ");
+			ft_putstr(line);
+			if (ret == 1)
+				ft_putendl("");
+			// 	return (0);
             free(line);
             line = NULL;
 		}
