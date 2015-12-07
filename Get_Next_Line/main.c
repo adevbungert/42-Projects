@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:21:50 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/05 14:33:06 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/07 12:52:09 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,16 @@ int		main(void)
     line = NULL;
 	if ((fd = open("fichier_test.txt", O_RDONLY)))
 	{
-		//ret = get_next_line(fd, &line);
-		//printf("%s\n", line);
 		while (ret != 0 && ret != -1)
 		{
-			ret = get_next_line(42, &line);
-			// ft_putstr(" ******* ");
-			// 	ft_putstr(line);
-			// ft_putendl(" ****** ");
-			ft_putstr(line);
-			if (ret == 1)
-				ft_putendl("");
-			// 	return (0);
+			ret = get_next_line(fd, &line);
+			if (line)
+				ft_putendl(line);
             free(line);
             line = NULL;
 		}
 		if (ret == -1)
-
-		// while ((ret = get_next_line(fd, &line)) == 1)
-		// 	printf("%s\n", line);
-		// if (ret == -1)
 			printf("Error");
-		// else
-		// 	printf("File finished");
 	}
 	return (0);
 }

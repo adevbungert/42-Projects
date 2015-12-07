@@ -6,17 +6,12 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:19:06 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/05 14:39:41 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/07 12:52:10 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
-/*
-*	Check_EOL = 1 if occur'\n' 
-*	Check_EOL = 0 if noccur'\n'
-*	Check_EOL = -1 if error
-*/
 
 int	static		check_eol_tab(char **tab, char **line)
 {
@@ -98,23 +93,16 @@ int				get_next_line(int const fd, char **line)
 			if (ret == -1)
 				return (-1);
 			BUF[ret] = '\0';
-			// ft_putstr(" ---- ");
-			// ft_putstr(BUF);
-			// ft_putendl(" ------- ");
 		}
 		free(BUF);
 		BUF = NULL;
 	}
-	// printf("TAB --->%s<--- \n", tab);
-	// printf("size %d\n", (int)ft_strlen(tab));
 	if (!tab || ft_strlen(tab) != 0)
 	{
-		// printf("HELLOOOOOOOOOOO\n");
 		return (1);
 	}
 	else
 	{
-		// printf("MERDEEEEEEEEEE\n");
 		return (0);
 	}
 }

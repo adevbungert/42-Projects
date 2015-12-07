@@ -6,14 +6,14 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/05 12:27:54 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/07 12:48:27 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUF_SIZE 2
+# define BUF_SIZE 500
 
 #include <unistd.h>
 #include <stdlib.h>
