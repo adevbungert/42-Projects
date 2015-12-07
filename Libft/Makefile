@@ -6,7 +6,7 @@
 #    By: abungert <abungert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 17:14:54 by abungert          #+#    #+#              #
-#    Updated: 2015/12/03 15:28:58 by abungert         ###   ########.fr        #
+#    Updated: 2015/12/07 10:52:47 by abungert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ CC=clang
 CFLAGS=-Wall -Wextra
 FULCFLAGS=$(CFLAGS) -I $(HDRPATH)
 
-all: $(NAME)
+all: $(CCHPATH) $(NAME)
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
