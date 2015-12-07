@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 10:05:31 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/06 19:10:31 by antoinebungert   ###   ########.fr       */
+/*   Created: 2015/12/07 10:41:20 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/07 10:41:52 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
