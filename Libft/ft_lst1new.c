@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lst1new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/07 21:26:18 by abungert         ###   ########.fr       */
+/*   Created: 2015/12/07 16:16:38 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/07 20:52:18 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
-# define BUF_SIZE 3
-
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft.h"
-#include <fcntl.h>
 
-int			get_next_line(int const fd, char **line);
+t_list1		*ft_lst1new(int fd)
+{
+	t_list1			*my_list;
 
-#endif
+	if (!(my_list = (t_list1 *)malloc(sizeof(*my_list))))
+		return (NULL);
+	my_list->next = NULL;
+	my_list->content = NULL;
+	my_list->n_fd = fd;
+	return (my_list);
+}
