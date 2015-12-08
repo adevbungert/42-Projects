@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 11:48:17 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 12:43:16 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/08 16:44:38 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 # include <unistd.h>
 # include <strings.h>
 
-typedef struct      s_list
+typedef struct		s_list
 {
-	void            *content;
-	size_t          content_size;
-	struct s_list   *next;
-}                   t_list;
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 
 void				*ft_memset(void *s, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -33,7 +33,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(char *str);
-char                *ft_strndup(char *str, size_t n);
+char				*ft_strndup(const char *s1, size_t n);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
 char				*ft_strcat(char *dest, char	*src);

@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 11:48:17 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/07 20:52:28 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/08 11:49:06 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <strings.h>
+# include "get_next_line.h"
 
-typedef struct		s_list
+typedef struct      s_list
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
-
-typedef struct 		s_list1
-{
-	char			*content;
-	int				n_fd;
-	struct s_list1	*next;
-}					t_list1;
+	void            *content;
+	size_t          content_size;
+	struct s_list   *next;
+}                   t_list;
 
 void				*ft_memset(void *s, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -104,7 +98,7 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-t_list1				*ft_lst1new(int fd);
+t_list_gnl			*ft_lst_gnl_new(int fd);
 
 # define ABS(v) ((v) < 0 ? -(v) : (v))
 

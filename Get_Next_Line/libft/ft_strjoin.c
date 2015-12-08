@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 10:41:20 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/07 10:41:52 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/08 16:31:48 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			string = ft_strcpy(string, s1);
 			return (ft_strcat(string, (char *)s2));
 		}
-	}	
+	}
 	return (NULL);
 }

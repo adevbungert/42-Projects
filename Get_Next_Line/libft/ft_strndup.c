@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 12:36:35 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 13:03:38 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/08 16:42:05 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define MIN(a,b) a<b?a:b
 
-char    *ft_strndup(char *str, size_t n)
+char	*ft_strndup(const char *s1, size_t n)
 {
-    char    *cpy;
+	char	*cpy;
+	size_t	len;
 
-    if ((cpy = (char *)malloc(sizeof(*cpy) * n + 1)) == NULL)
-        return (NULL);
-    cpy = ft_strncpy(cpy, str, n); 
-    return (cpy);
+	len = ft_strlen(s1);
+	if (!(cpy = (char *)malloc(MIN(len + 1, n))))
+		return (NULL);
+	ft_strncpy(cpy, s1, n);
+	return (cpy);
 }
