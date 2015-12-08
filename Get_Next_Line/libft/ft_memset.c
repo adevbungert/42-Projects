@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 17:29:11 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/25 11:11:33 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:40:42 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 10
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+void	*ft_memset(void *s, int c, size_t len)
 {
-	int						fd;
-	char					*content;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	unsigned char	*uc1;
+	unsigned char	uc2;
 
-int							get_next_line(int const fd, char **line);
-
-#endif
+	uc1 = s;
+	uc2 = c;
+	while (len != 0)
+	{
+		len--;
+		*uc1++ = uc2;
+	}
+	return (s);
+}

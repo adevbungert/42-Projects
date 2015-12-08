@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 17:29:11 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 16:07:04 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:37:38 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 10
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+static void		itoa_bis(int n, char *str, int *p)
 {
-	int						fd;
-	char					*content;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	if (n < -9 || 9 < n)
+		itoa_bis(n / 10, str, p);
+	str[(*p)++] = '0' + ABS(n % 10);
+}
 
-int							get_next_line(int const fd, char **line);
+char			*ft_itoa(int n)
+{
+	char		*str;
+	int			p;
 
-#endif
+	if (!(str = (char *)malloc(sizeof(char) * (sizeof(int) * 8 + 1))))
+		return (NULL);
+	p = 0;
+	if (n < 0)
+		str[p++] = '-';
+	itoa_bis(n, str, &p);
+	str[p] = '\0';
+	return (str);
+}

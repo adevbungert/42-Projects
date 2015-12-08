@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 17:29:11 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/26 09:52:14 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:56:46 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 10
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int						fd;
-	char					*content;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	char			*str;
+	const char		*s1;
+	int				i;
 
-int							get_next_line(int const fd, char **line);
-
-#endif
+	if (!s || !f)
+		return (NULL);
+	s1 = s;
+	while (*s1 != '\0')
+		++s1;
+	if (!(str = (char *)malloc(sizeof(char) * (s1 - s + 1))))
+		return (NULL);
+	s1 = s;
+	i = 0;
+	while (*s1 != '\0')
+	{
+		str[i] = f(i, *s1);
+		i++;
+		s1++;
+	}
+	str[i] = '\0';
+	return (str);
+}

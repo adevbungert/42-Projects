@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 17:29:11 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/24 11:52:21 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:44:24 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 10
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	int						fd;
-	char					*content;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
-
-int							get_next_line(int const fd, char **line);
-
-#endif
+	while ((*s1 == *s2) && (*s1 != '\0'))
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}

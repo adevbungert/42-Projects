@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 17:29:11 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/26 10:13:30 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:58:36 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 10
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int						fd;
-	char					*content;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	char			*str;
 
-int							get_next_line(int const fd, char **line);
-
-#endif
+	if (!s)
+		return ("");
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	ft_memcpy(str, s + start, len);
+	return (str);
+}

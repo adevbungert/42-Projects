@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 17:29:11 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/24 18:32:42 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:53:54 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 10
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int						fd;
-	char					*content;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	char		*str;
+	const char	*s1 = s;
 
-int							get_next_line(int const fd, char **line);
-
-#endif
+	if (!s || !f)
+		return (NULL);
+	while (*s1 != '\0')
+		++s1;
+	if (!(str = (char *)malloc(sizeof(char) * (s1 - s + 1))))
+		return (NULL);
+	s1 = s;
+	while (*s1 != '\0')
+	{
+		str[s1 - s] = f(*s1);
+		s1++;
+	}
+	str[s1 - s] = '\0';
+	return (str);
+}
