@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 12:46:52 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/25 10:37:27 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/30 12:38:01 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 3
-
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
-#include <fcntl.h>
-
-typedef struct              s_list_gnl
+int		ft_isdigit(int c)
 {
-    int                     fd;
-    char                    *content;
-    struct s_list_gnl       *next;
-}                           t_list_gnl;
-
-int			get_next_line(int const fd, char **line);
-
-#endif
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}

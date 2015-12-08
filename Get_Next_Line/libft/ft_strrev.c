@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strreverse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 12:46:52 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 16:20:18 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:55:18 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 3
-
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
-#include <fcntl.h>
-
-typedef struct              s_list_gnl
+char	*ft_strrev(char *s)
 {
-    int                     fd;
-    char                    *content;
-    struct s_list_gnl       *next;
-}                           t_list_gnl;
+	int		i;
+	int		j;
+	char	c;
 
-int			get_next_line(int const fd, char **line);
-
-#endif
+	i = 0;
+	j = ft_strlen(s);
+	while (i < j)
+	{
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+		i++;
+		j--;
+	}
+	return (s);
+}

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 12:46:52 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/25 14:59:52 by abungert          #+#    #+#             */
+/*   Updated: 2015/11/30 15:14:01 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 3
-
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
-#include <fcntl.h>
-
-typedef struct              s_list_gnl
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-    int                     fd;
-    char                    *content;
-    struct s_list_gnl       *next;
-}                           t_list_gnl;
+	void *const str = dst;
 
-int			get_next_line(int const fd, char **line);
-
-#endif
+	if (dst > src)
+		while (len-- > 0)
+			*((unsigned char *)(dst + len)) = *((unsigned char *)(src + len));
+	else if (dst < src)
+		while (len-- > 0)
+			*((unsigned char *)dst++) = *((unsigned char *)src++);
+	return (str);
+}

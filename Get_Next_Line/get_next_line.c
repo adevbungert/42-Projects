@@ -1,137 +1,107 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bis.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:19:06 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/07 21:24:16 by abungert         ###   ########.fr       */
+/*   Created: 2015/12/08 10:39:28 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/08 13:09:53 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
-t_list1			*check_fd(t_list1 *tmp, int fd)
+static t_list_gnl       *lst_gnl_new(int fd)
 {
-	t_list1		*new_link;
+    t_list_gnl          *my_list;
 
-	while (tmp->next)
-	{
-		if (tmp->n_fd == fd)
-			return (tmp);
-		tmp = tmp->next;
-	}
-	if (tmp->n_fd == fd)
-		return (tmp);
-	new_link = ft_lst1new(fd);
-	tmp->next = new_link;
-	return (new_link);
+    if (!(my_list = (t_list_gnl *)malloc(sizeof(*my_list))))
+        return (NULL);
+    my_list->fd = fd;
+    if (!(my_list->content = ft_strnew(BUFF_SIZE + 1)))
+        return (NULL);
+    my_list->next = NULL;
+    return (my_list);
 }
 
-int	static		check_eol_lst(t_list1 **lst, char **line)
+static t_list_gnl      *check_fd(t_list_gnl *first, int fd)
 {
-	int		i;
-	t_list1	*tmp;
+    t_list_gnl          *link;
 
-	i = 0;
-	tmp = *lst;
-	if (!(tmp->content))
-		return (0);
-	while (tmp->content[i])
-	{
-		if (tmp->content[i] == '\n' || tmp->content[i] == '\0')
-		{
-			if (!(*line = ft_strsub(tmp->content, 0, i)))
-				return (-1);
-			if (tmp->content[i] == '\0')
-				return (0);
-			if(!(((*lst)->content) = ft_strdup(&(tmp->content[i + 1]))))
-				return (-1);
-			return (1);
-		}
-		i++;
-	}
-	return (0);
+    while (first->next)
+    {
+        if (first->fd == fd)
+            return (first);
+        first = first->next;
+    }
+    if (first->fd == fd)
+        return (first);
+    else
+    {
+        link = lst_gnl_new(fd);
+        first->next = link;
+        return (link);
+    }
 }
 
-int static		check_eol_buf(t_list1 **lst, char **line, char *BUF)
+static int          check_line(int fd, t_list_gnl **current_link, char **line)
 {
-	int		i;
-	char	*tmp;
+    int     i;
+    int     size;
 
-	i = 0;
-	while (BUF[i])
-	{
-		if (BUF[i] == '\n' || BUF[i] == '\0')
-		{
-			if (*lst)
-			{
-				tmp = ft_strsub(BUF, 0, i);
-				if ((*lst)->content)
-				{
-					if(!(*line = ft_strjoin((*lst)->content, tmp)))
-						return (-1);
-				}
-				else
-				{
-					if(!(*line = ft_strdup(tmp)))
-						return (-1);
-				}
-			}
-			if (BUF[i + 1])
-			{
-				if (!((*lst)->content = ft_strdup(&(BUF[i + 1]))))
-					return (-1);
-			}
-			else
-				ft_strdel(&(*lst)->content);
-			return (1);
-		}
-		i++;
-	}
-	if (i > 0 && (*lst)->content)
-	{
-		if (!((*lst)->content = ft_strjoin((*lst)->content, BUF)))
-			return (-1);
-	}
-	else if (i > 0)
-	{
-		if (!((*lst)->content = ft_strdup(BUF)))
-			return (-1);
-	}
-	return (0);
+    i = 0;
+    size = ft_strlen((*current_link)->content);
+    while (size >= 0)
+    {
+        if ((*current_link)->content[i] == '\n')
+        {
+            *line = ft_strjoin(*line, ft_strndup((*current_link)->content, i));
+            (*current_link)->content = &((*current_link)->content)[i + 1];
+            return (1);
+        }
+        if (((*current_link)->content)[i] == '\0')
+        {
+            *line = ft_strjoin(*line, (*current_link)->content);
+            if (!((*current_link)->content = ft_strnew(BUFF_SIZE + 1)))
+                return (-1);
+            size = read(fd, (*current_link)->content, BUFF_SIZE);
+            if (size == -1)
+                return (-1);
+            else if (size == 0)
+                return (0);
+            //(size == -1 || size == 0) ? break : ;
+            i = -1;
+        }
+        i++;
+    }
+    return (size);
 }
 
-int				get_next_line(int const fd, char **line)
+int                 get_next_line(int const fd, char **line)
 {
-	t_list1 static	*lst = NULL;
-	char			*BUF;
-	int				ret;
+    int                 ret;
+    static t_list_gnl   *first = NULL;
+    t_list_gnl          *current_link;
 
-	if (!lst)
-		lst = ft_lst1new(fd);
-	else
-		lst = check_fd(lst, fd);
-	if (!(check_eol_lst(&(lst), line)))
-	{
-		if (!(BUF = (char *)malloc(sizeof(char) * BUF_SIZE + 1)))
-			return (-1);
-		while (!(check_eol_buf(&(lst), line, BUF)))
-		{
-			ret = read(fd, BUF, BUF_SIZE);
-			if (ret == 0)
-				if (!(check_eol_lst(&(lst), line)))
-					return (0);
-			if (ret == -1)
-				return (-1);
-			BUF[ret] = '\0';
-		}
-		free(BUF);
-		BUF = NULL;
-	}
-	//if (ft_strlen(lst->content) != 0)
-	//	return (1);
-	return (1);
+    if (fd < 0 || fd == 1 || fd == 2|| BUFF_SIZE <= 0 || !line)
+        return (-1);
+    if (!first)
+    {
+        first = lst_gnl_new(fd);
+        if ((ret = read(fd, first->content, BUFF_SIZE)) == -1)
+            return (-1);
+        if (ret == 0)
+            return (0);
+    }
+    *line = ft_strnew(1);
+    current_link = check_fd(first, fd);
+    ret = check_line(fd, &current_link, line);
+    if (ret > 0)
+        return (1);
+    else if (ret == 0)
+        return (0);
+    else
+        return (-1);
+    //(ret > 0) ? ((return (1)) ? ret == 0 : return (0)) : return (-1);
 }

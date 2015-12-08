@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 12:46:52 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/24 11:24:28 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:50:50 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 3
-
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
-#include <fcntl.h>
-
-typedef struct              s_list_gnl
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-    int                     fd;
-    char                    *content;
-    struct s_list_gnl       *next;
-}                           t_list_gnl;
+	char *str;
 
-int			get_next_line(int const fd, char **line);
-
-#endif
+	if (!dst || !src || !n)
+		return (NULL);
+	str = dst;
+	while (*src != '\0' && n > 0)
+	{
+		*(dst++) = *(src++);
+		n--;
+	}
+	while (n > 0)
+	{
+		*(dst++) = '\0';
+		n--;
+	}
+	return (str);
+}
