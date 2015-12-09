@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lst1new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 16:02:58 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/09 11:46:39 by abungert         ###   ########.fr       */
+/*   Created: 2015/12/07 16:16:38 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/08 12:11:00 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
+#include "get_next_line.h"
 
-# define BUFF_SIZE 100
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+t_list_gnl		    *ft_lst_gnl_new(int fd)
 {
-	int						fd;
-	char					*content;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	t_list_gnl      *my_list;
 
-int							get_next_line(int const fd, char **line);
-
-#endif
+	if (!(my_list = (t_list_gnl *)malloc(sizeof(*my_list))))
+		return (NULL);
+    my_list->fd = fd;
+    if (!(my_list->content = ft_strnew(BUFF_SIZE + 1)))
+        return (NULL);
+	my_list->next = NULL;
+	return (my_list);
+}

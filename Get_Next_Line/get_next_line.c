@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 16:51:50 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 17:18:13 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/09 11:43:28 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ static t_list_gnl	*check_fd(t_list_gnl *first, int fd)
 	}
 }
 
-static int			check_line(int fd, int i,
-	t_list_gnl **current_link, char **line)
+static int			check_line(int fd, t_list_gnl **current_link, char **line)
 {
 	int			size;
+	int			i;
 
+	i = -1;
 	size = ft_strlen((*current_link)->content);
-	while (size >= 0)
+	while (size >= 0 && ++i >= 0)
 	{
 		if ((*current_link)->content[i] == '\n')
 		{
@@ -69,7 +70,6 @@ static int			check_line(int fd, int i,
 				break ;
 			i = -1;
 		}
-		i++;
 	}
 	return (size);
 }
@@ -79,9 +79,7 @@ int					get_next_line(int const fd, char **line)
 	int					ret;
 	static t_list_gnl	*first = NULL;
 	t_list_gnl			*current_link;
-	int					i;
 
-	i = 0;
 	if (fd < 0 || fd == 1 || fd == 2 || BUFF_SIZE <= 0 || !line)
 		return (-1);
 	if (!first)
@@ -94,7 +92,7 @@ int					get_next_line(int const fd, char **line)
 	}
 	*line = ft_strnew(1);
 	current_link = check_fd(first, fd);
-	ret = check_line(fd, i, &current_link, line);
+	ret = check_line(fd, &current_link, line);
 	if (ret > 0)
 		return (1);
 	else if (ret == 0)
