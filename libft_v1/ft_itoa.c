@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 16:07:04 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/14 15:13:30 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/17 11:22:35 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,23 @@ static void		itoa_bis(int n, char *str, int *p)
 	str[(*p)++] = '0' + ABS(n % 10);
 }
 
+static int		ft_get_size(int n)
+{
+	if (n < 10 && n > -10)
+	{
+		if (n < 10 && n >= 0)
+			return (1);
+		return (2);
+	}
+	return (ft_get_size(n / 10) + 1);
+}
+
 char			*ft_itoa(int n)
 {
 	char		*str;
 	int			p;
 
-	if (!(str = (char *)malloc(sizeof(char) * (sizeof(int) * 8 + 1))))
+	if (!(str = (char *)malloc(sizeof(char) * (ft_get_size(n) + 1))))
 		return (NULL);
 	p = 0;
 	if (n < 0)

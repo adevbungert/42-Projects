@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 12:16:35 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/14 15:50:32 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/17 11:25:19 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,24 @@ static void		aux(unsigned int n, unsigned int b, char *str, int *p)
 	str[(*p)++] = base[n % b];
 }
 
+static int		ft_get_size(int n)
+{
+	if (n < 10 && n > -10)
+	{
+		if (n < 10 && n >= 0)
+			return (1);
+		return (2);
+	}
+	return (ft_get_size(n / 10) + 1);
+}
+
 char			*ft_itoa_base(int n, int base)
 {
 	char		*str;
 	int			p;
 
 	if (base < 2 || 16 < base
-		|| !(str = (char *)malloc(sizeof(char) * (sizeof(int) * 8 + 1))))
+		|| !(str = (char *)malloc(sizeof(char) * (ft_get_size(n) + 1))))
 		return (NULL);
 	p = 0;
 	if (base == 10 && n < 0)
