@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 11:14:45 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/30 13:20:40 by abungert         ###   ########.fr       */
+/*   Created: 2015/12/14 10:38:34 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/14 16:38:23 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 5
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/includes/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int						fd;
-	char					*cont;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	const unsigned char		*tmp1;
+	const unsigned char		*tmp2;
+	size_t					i;
 
-int							get_next_line(int const fd, char **line);
-
-#endif
+	if (n <= 0)
+		return (0);
+	tmp1 = s1;
+	tmp2 = s2;
+	i = 0;
+	while (tmp1[i] == tmp2[i] && i < (n - 1))
+		i++;
+	return (tmp1[i] - tmp2[i]);
+}

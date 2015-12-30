@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 11:14:45 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/30 13:20:40 by abungert         ###   ########.fr       */
+/*   Created: 2015/12/14 11:40:01 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/14 11:51:06 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 5
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/includes/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int						fd;
-	char					*cont;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	len;
 
-int							get_next_line(int const fd, char **line);
-
-#endif
+	i = 0;
+	if (ft_strlen(s2) == 0)
+		return ((char *)s1);
+	len = ft_strlen(s2);
+	while (s1[i] && i < n)
+	{
+		j = 0;
+		while (s1[i + j] == s2[j])
+		{
+			if ((j == len - 1) && (i + j < n))
+				return ((char *)(s1 + i));
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}

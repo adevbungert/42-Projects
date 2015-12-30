@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:14:13 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/17 11:14:33 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/30 13:14:44 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 static t_list_gnl	*lst_gnl_new(int fd)
 {
-	t_list_gnl *link;
+	t_list_gnl		*link;
+	int				ret;
 
 	if (!(link = (t_list_gnl *)malloc(sizeof(t_list_gnl))))
 		return (NULL);
 	link->fd = fd;
-	if (!(link->content = ft_strnew(BUFF_SIZE + 1)))
+	if (!(link->cont = ft_strnew(BUFF_SIZE + 1)))
+		return (NULL);
+	ret = read(fd, link->cont, BUFF_SIZE);
+	if (ret == -1)
 		return (NULL);
 	link->next = NULL;
 	return (link);
@@ -29,70 +33,83 @@ static t_list_gnl	*check_fd(t_list_gnl *first, int fd)
 {
 	t_list_gnl	*link;
 
-	while (first->next)
+	while (first)
 	{
 		if (first->fd == fd)
 			return (first);
+		if (!(first->next))
+			break ;
 		first = first->next;
 	}
-	if (first->fd == fd)
-		return (first);
-	else
-	{
-		link = lst_gnl_new(fd);
-		first->next = link;
-		return (link);
-	}
+	if (!(link = lst_gnl_new(fd)))
+		return (NULL);
+	first->next = link;
+	return (link);
 }
 
-static int			check_line(int fd, t_list_gnl **current_link, char **line)
+static t_list_gnl	*put_in_line(t_list_gnl *link, char **line, char *end)
+{
+	char	*tmp1;
+	char	*tmp2;
+	char	*tmp3;
+
+	tmp1 = *line;
+	tmp2 = ft_strsub(link->cont, 0, end - link->cont);
+	tmp3 = ft_strsub(link->cont, (end - link->cont) + 1, ft_strlen(link->cont));
+	*line = ft_strjoin(*line, tmp2);
+	ft_memdel((void **)&tmp1);
+	ft_memdel((void **)&tmp2);
+	ft_memdel((void **)&(link->cont));
+	link->cont = tmp3;
+	return (link);
+}
+
+static int			check_line(int fd, t_list_gnl *link, char **line)
 {
 	int			size;
-	int			i;
+	int			len;
+	char		*end;
+	char		*tmp1;
 
-	i = -1;
-	size = ft_strlen((*current_link)->content);
-	while (size >= 0 && ++i >= 0)
+	size = 1;
+	while (size > 0)
 	{
-		if ((*current_link)->content[i] == '\n')
+		if ((end = ft_strchr(link->cont, '\n')))
 		{
-			*line = ft_strjoin(*line, ft_strndup((*current_link)->content, i));
-			(*current_link)->content = &((*current_link)->content)[i + 1];
+			link = put_in_line(link, line, end);
 			return (1);
 		}
-		if (((*current_link)->content)[i] == '\0')
-		{
-			*line = ft_strjoin(*line, (*current_link)->content);
-			if (!((*current_link)->content = ft_strnew(BUFF_SIZE + 1)))
-				return (-1);
-			size = read(fd, (*current_link)->content, BUFF_SIZE);
-			if (size == -1 || size == 0)
-				break ;
-			i = -1;
-		}
+		tmp1 = *line;
+		*line = ft_strjoin(*line, link->cont);
+		ft_memdel((void **)&tmp1);
+		len = ft_strlen(link->cont);
+		ft_memdel((void **)&(link->cont));
+		if (!(link->cont = ft_strnew(BUFF_SIZE + 1)))
+			return (-1);
+		size = read(fd, link->cont, BUFF_SIZE);
+		if (!len && !size)
+			return (0);
 	}
-	return (size);
+	return (1);
 }
 
 int					get_next_line(int const fd, char **line)
 {
 	int					ret;
-	static t_list_gnl	*first = NULL;
+	static t_list_gnl	*first;
 	t_list_gnl			*current_link;
 
 	if (fd < 0 || fd == 1 || fd == 2 || BUFF_SIZE <= 0 || !line)
 		return (-1);
 	if (!first)
 	{
-		first = lst_gnl_new(fd);
-		if ((ret = read(fd, first->content, BUFF_SIZE)) == -1)
+		if (!(first = lst_gnl_new(fd)))
 			return (-1);
-		if (ret == 0)
-			return (0);
 	}
 	*line = ft_strnew(1);
-	current_link = check_fd(first, fd);
-	ret = check_line(fd, &current_link, line);
+	if (!(current_link = check_fd(first, fd)))
+		return (-1);
+	ret = check_line(fd, current_link, line);
 	if (ret > 0)
 		return (1);
 	else if (ret == 0)

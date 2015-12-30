@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 11:14:45 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/30 13:20:40 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/27 17:01:53 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/01 17:41:57 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 5
-
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/includes/libft.h"
-# include <fcntl.h>
-
-typedef struct				s_list_gnl
+void	ft_putendl_fd(char const *s, int fd)
 {
-	int						fd;
-	char					*cont;
-	struct s_list_gnl		*next;
-}							t_list_gnl;
-
-int							get_next_line(int const fd, char **line);
-
-#endif
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
