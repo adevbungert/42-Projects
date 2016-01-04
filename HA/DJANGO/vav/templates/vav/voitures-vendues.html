@@ -1,0 +1,328 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,900,300|Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Voitures Vendues</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/voitures-a-vendre.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.html"><img alt="Brand" src="{% static 'img/logos/HA-logo.png' %}"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown hidden-xs">
+                        <a href="#" class="dropdown-toggle page-scroll" data-toggle="dropdown" data-target="#">Voitures<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="voitures-a-vendre.html">Voitures à vendre</a>
+                            </li>
+                            <li>
+                                <a href="voitures-vendues.html">Voitures vendues</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <div class="button hidden-sm hidden-md hidden-lg">
+                        <li>
+                            <a href="voitures-a-vendre.html">
+                            Voitures à vendre</a>
+                        </li>
+                        <li>
+                            <a href="voitures-vendues.html">Voitures vendues</a>
+                        </li>
+                    </div>
+                    <li>
+                        <a href="index.html#first" target="_top">
+                        <span>
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 41.378 41.378" style="enable-background:new 0 0 41.378 41.378;width: 18px; height: 18px; margin-top: -2px;" xml:space="preserve">
+                            <path d="M40.897,16.601c-0.257-2.263-6.35,0-6.35,0l-0.359,3.22c-0.133-0.076-0.268-0.15-0.41-0.213l-1.539-6.715
+                                c-0.564-3.197-2.977-5.552-6.494-5.431h-9.037c-0.055,0.375-0.143,0.738-0.252,1.093h9.899c2.053,0,3.934,1.321,4.448,3.502
+                                l1.653,6.63c-0.104-0.003-0.207-0.013-0.312-0.013H12.978l0.005,6.463h11.873v1.445H12.984l0.001,0.422h11.751v1.448H12.985
+                                l0.004,5.43h12.677v3.439c0,1.397,1.729,2.532,3.86,2.532s3.857-1.134,3.857-2.532v-3.837c1.821-0.688,3.089-2.193,3.089-3.944
+                                v-6.153c0-1.36-0.768-2.571-1.957-3.366l6.382-0.345C40.897,19.676,41.153,18.862,40.897,16.601z M33.586,28.344H26.62v-3.312
+                                h6.966V28.344z"/>
+                            <rect x="12.808" y="27.003" width="0.177" height="1.448"/>
+                            <rect x="12.929" y="25.137" width="0.055" height="1.445"/>
+                            <path d="M15.337,6.488C15.331,3.71,13.821,1.29,11.572,0v5.993L7.851,8.141L4.127,5.986V0c-2.245,1.29-3.758,3.71-3.76,6.488
+                                c0,2.913,1.67,5.437,4.104,6.676v0.032v24.649c0,0.976,0.393,1.859,1.033,2.5c0.639,0.64,1.521,1.029,2.499,1.033
+                                c1.944,0,3.524-1.578,3.531-3.532l-0.015-24.839C13.798,11.725,15.334,9.283,15.337,6.488z M8.781,39.409
+                                c-0.526,0.528-1.382,0.528-1.912-0.001c-0.522-0.524-0.521-1.376,0.005-1.904c0.529-0.526,1.382-0.526,1.904-0.004
+                                C9.307,38.029,9.308,38.882,8.781,39.409z"/>
+                            </svg>
+                            </span>Services</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <span>
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="15px" height="15px" viewBox="0 0 409.165 409.164" style="enable-background:new 0 0 409.165 409.164;"
+                            xml:space="preserve">
+                                <path d="M204.583,216.671c50.664,0,91.74-48.075,91.74-107.378c0-82.237-41.074-107.377-91.74-107.377
+                                    c-50.668,0-91.74,25.14-91.74,107.377C112.844,168.596,153.916,216.671,204.583,216.671z"/>
+                                <path d="M407.164,374.717L360.88,270.454c-2.117-4.771-5.836-8.728-10.465-11.138l-71.83-37.392
+                                    c-1.584-0.823-3.502-0.663-4.926,0.415c-20.316,15.366-44.203,23.488-69.076,23.488c-24.877,0-48.762-8.122-69.078-23.488
+                                    c-1.428-1.078-3.346-1.238-4.93-0.415L58.75,259.316c-4.631,2.41-8.346,6.365-10.465,11.138L2.001,374.717
+                                    c-3.191,7.188-2.537,15.412,1.75,22.005c4.285,6.592,11.537,10.526,19.4,10.526h362.861c7.863,0,15.117-3.936,19.402-10.527
+                                    C409.699,390.129,410.355,381.902,407.164,374.717z"/>
+                            </svg>
+                            </span>Qui sommes-nous</a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact" target="_top">
+                        <span>
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="15px" height="15px" viewBox="0 0 485.211 485.211" style="enable-background:new 0 0 485.211 485.211;"
+                            xml:space="preserve">
+                                <path d="M485.211,363.906c0,10.637-2.992,20.498-7.785,29.174L324.225,221.67l151.54-132.584
+                                    c5.895,9.355,9.446,20.344,9.446,32.219V363.906z M242.606,252.793l210.863-184.5c-8.653-4.737-18.397-7.642-28.908-7.642H60.651
+                                    c-10.524,0-20.271,2.905-28.889,7.642L242.606,252.793z M301.393,241.631l-48.809,42.734c-2.855,2.487-6.41,3.729-9.978,3.729
+                                    c-3.57,0-7.125-1.242-9.98-3.729l-48.82-42.736L28.667,415.23c9.299,5.834,20.197,9.329,31.983,9.329h363.911
+                                    c11.784,0,22.687-3.495,31.983-9.329L301.393,241.631z M9.448,89.085C3.554,98.44,0,109.429,0,121.305v242.602
+                                    c0,10.637,2.978,20.498,7.789,29.174l153.183-171.44L9.448,89.085z"/>
+                            </svg>
+                        </span>Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Nos Voitures Vendues
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <button class="orderbyprice">Order by price</button>
+        <br>
+
+
+
+
+        <!-- Project One -->
+        <div class="row isotope-grid">
+          {% for car in voitures_vendues %}
+            <div class="col-lg-4 col-md-4 col-sm-6 portfolio-item" data-price="{{ car.prix }}">
+                <a class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i>VENDUE</i>
+                        </div>
+                    </div>
+                    <img class="img-responsive" src="{{ car.photo1.url }}">
+                </a>
+                <!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>-->
+            </div>
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12"><p>Copyright &copy; Your Website 2014</p></div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Portfolio Modals -->
+
+<!--
+
+ON PEUT SUPPRIMER CA, NON ?
+
+
+
+    <div class="portfolio-modal modal fade" id="ferrari-ff" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Name</h2>
+                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <div class="carousel slide article-slide" id="article-photo-carousel">
+
+                            <div class="carousel-inner cont-slider">
+
+                                <div class="item active">
+                                  <img alt="" title="" src="../img/ferrari-ff/ff-1.JPG">
+                                </div>
+                                <div class="item">
+                                  <img alt="" title="" src="../img/ferrari-ff/ff-2.JPG">
+                                </div>
+                                <div class="item">
+                                  <img alt="" title="" src="../img/ferrari-ff/ff-3.JPG">
+                                </div>
+                                <div class="item">
+                                  <img alt="" title="" src="../img/ferrari-ff/ff-4.JPG">
+                                </div>
+                              </div>
+                              <ol class="carousel-indicators">
+                                <li class="active" data-slide-to="0" data-target="#article-photo-carousel">
+                                  <img alt="" src="../img/ferrari-ff/ff-1.JPG">
+                                </li>
+                                <li class="" data-slide-to="1" data-target="#article-photo-carousel">
+                                  <img alt="" src="../img/ferrari-ff/ff-2.JPG">
+                                </li>
+                                <li class="" data-slide-to="2" data-target="#article-photo-carousel">
+                                  <img alt="" src="../img/ferrari-ff/ff-3.JPG">
+                                </li>
+                                <li class="" data-slide-to="3" data-target="#article-photo-carousel">
+                                  <img alt="" src="../img/ferrari-ff/ff-4.JPG">
+                                </li>
+                              </ol>
+                            </div>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="rolls-royce" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Heading</h2>
+                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="porsche-911" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Name</h2>
+                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/treehouse-preview.png" alt="">
+                            <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
+                            <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  -->
+
+
+
+  
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+
+    <script type="text/javascript">
+    // isotope-grid
+     //portfolio-item
+     $container = $('.isotope-grid');
+     $container.isotope({
+        itemSeletor:'.portfolio-item',
+        layoutMode:'masonry',
+
+        masonry: {
+            // columnWidth: 335;
+            isFitWidth: true,
+        },
+
+        getSortData: {
+            price: '[data-price] parseInt',
+        },
+         });
+
+        $('.orderbyprice').click(function(){
+            $container.isotope({ sortBy:'price'})
+        })
+
+
+    </script>
+
+</body>
+
+</html>

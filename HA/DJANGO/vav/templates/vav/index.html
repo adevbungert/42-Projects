@@ -1,0 +1,683 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,900,300|Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Haussmann Automobile</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/agency.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.html"><img alt="Brand" src="{% static 'img/logos/HA-logo.png' %}"></a>
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown hidden-xs">
+                        <a href="#" class="dropdown-toggle page-scroll" data-toggle="dropdown" data-target="#">Voitures<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="voitures-a-vendre.html">Voitures à vendre</a>
+                            </li>
+                            <li>
+                                <a href="voitures-vendues.html">Voitures vendues</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <div class="button hidden-sm hidden-md hidden-lg">
+                        <li>
+                            <a href="voitures-a-vendre.html">
+                            Voitures à vendre</a>
+                        </li>
+                        <li>
+                            <a href="voitures-vendues.html">Voitures vendues</a>
+                        </li>
+                    </div>
+                    <li>
+                        <a href="#first">
+                        <span>
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 41.378 41.378" style="enable-background:new 0 0 41.378 41.378;width: 18px; height: 18px; margin-top: -2px;" xml:space="preserve">
+                            <path d="M40.897,16.601c-0.257-2.263-6.35,0-6.35,0l-0.359,3.22c-0.133-0.076-0.268-0.15-0.41-0.213l-1.539-6.715
+                                c-0.564-3.197-2.977-5.552-6.494-5.431h-9.037c-0.055,0.375-0.143,0.738-0.252,1.093h9.899c2.053,0,3.934,1.321,4.448,3.502
+                                l1.653,6.63c-0.104-0.003-0.207-0.013-0.312-0.013H12.978l0.005,6.463h11.873v1.445H12.984l0.001,0.422h11.751v1.448H12.985
+                                l0.004,5.43h12.677v3.439c0,1.397,1.729,2.532,3.86,2.532s3.857-1.134,3.857-2.532v-3.837c1.821-0.688,3.089-2.193,3.089-3.944
+                                v-6.153c0-1.36-0.768-2.571-1.957-3.366l6.382-0.345C40.897,19.676,41.153,18.862,40.897,16.601z M33.586,28.344H26.62v-3.312
+                                h6.966V28.344z"/>
+                            <rect x="12.808" y="27.003" width="0.177" height="1.448"/>
+                            <rect x="12.929" y="25.137" width="0.055" height="1.445"/>
+                            <path d="M15.337,6.488C15.331,3.71,13.821,1.29,11.572,0v5.993L7.851,8.141L4.127,5.986V0c-2.245,1.29-3.758,3.71-3.76,6.488
+                                c0,2.913,1.67,5.437,4.104,6.676v0.032v24.649c0,0.976,0.393,1.859,1.033,2.5c0.639,0.64,1.521,1.029,2.499,1.033
+                                c1.944,0,3.524-1.578,3.531-3.532l-0.015-24.839C13.798,11.725,15.334,9.283,15.337,6.488z M8.781,39.409
+                                c-0.526,0.528-1.382,0.528-1.912-0.001c-0.522-0.524-0.521-1.376,0.005-1.904c0.529-0.526,1.382-0.526,1.904-0.004
+                                C9.307,38.029,9.308,38.882,8.781,39.409z"/>
+                            </svg>
+                        </span>Services</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <span>
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="15px" height="15px" viewBox="0 0 409.165 409.164" style="enable-background:new 0 0 409.165 409.164;"
+                            xml:space="preserve">
+                                <path d="M204.583,216.671c50.664,0,91.74-48.075,91.74-107.378c0-82.237-41.074-107.377-91.74-107.377
+                                    c-50.668,0-91.74,25.14-91.74,107.377C112.844,168.596,153.916,216.671,204.583,216.671z"/>
+                                <path d="M407.164,374.717L360.88,270.454c-2.117-4.771-5.836-8.728-10.465-11.138l-71.83-37.392
+                                    c-1.584-0.823-3.502-0.663-4.926,0.415c-20.316,15.366-44.203,23.488-69.076,23.488c-24.877,0-48.762-8.122-69.078-23.488
+                                    c-1.428-1.078-3.346-1.238-4.93-0.415L58.75,259.316c-4.631,2.41-8.346,6.365-10.465,11.138L2.001,374.717
+                                    c-3.191,7.188-2.537,15.412,1.75,22.005c4.285,6.592,11.537,10.526,19.4,10.526h362.861c7.863,0,15.117-3.936,19.402-10.527
+                                    C409.699,390.129,410.355,381.902,407.164,374.717z"/>
+                            </svg>
+                    </span>Qui sommes-nous</a>
+                    </li>
+                    <li>
+                        <a href="#contact">
+                        <span>
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="15px" height="15px" viewBox="0 0 485.211 485.211" style="enable-background:new 0 0 485.211 485.211;"
+                            xml:space="preserve">
+                                <path d="M485.211,363.906c0,10.637-2.992,20.498-7.785,29.174L324.225,221.67l151.54-132.584
+                                    c5.895,9.355,9.446,20.344,9.446,32.219V363.906z M242.606,252.793l210.863-184.5c-8.653-4.737-18.397-7.642-28.908-7.642H60.651
+                                    c-10.524,0-20.271,2.905-28.889,7.642L242.606,252.793z M301.393,241.631l-48.809,42.734c-2.855,2.487-6.41,3.729-9.978,3.729
+                                    c-3.57,0-7.125-1.242-9.98-3.729l-48.82-42.736L28.667,415.23c9.299,5.834,20.197,9.329,31.983,9.329h363.911
+                                    c11.784,0,22.687-3.495,31.983-9.329L301.393,241.631z M9.448,89.085C3.554,98.44,0,109.429,0,121.305v242.602
+                                    c0,10.637,2.978,20.498,7.789,29.174l153.183-171.44L9.448,89.085z"/>
+                            </svg>
+                        </span>Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div id="background-carousel">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active" style="background-image:url({% static 'img/header/header-1.jpg' %})"></div>
+                    <div class="item" style="background-image:url({% static 'img/header/header-4.jpg' %})"></div>
+                    <div class="item" style="background-image:url({% static 'img/header/header-2.jpg' %})"></div>
+                </div>
+            </div>
+        </div>
+        <div id="content-wrapper">
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-heading">Haussmann Automobile</div>
+                    <div class="intro-lead-in">Achat - Vente - Reprise</div>
+                    <a href="#first" class="page-scroll btn btn-xl">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-light-gray">
+    <!-- Services Section -->
+        <section id="services">
+            <div id="first" class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Services</h2>
+                        <h3 class="section-subheading text-muted">Haussmann Automobile vous propose une large gamme de services sur mesure.</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4 service-left">
+                        <span class="fa-stack fa-4x">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 51.665 51.665" style="enable-background:new 0 0 51.665 51.665;margin-top: -18px;" xml:space="preserve">
+                            <g>
+                                <path d="M51.565,26.173c-0.229-2.002-5.624,0-5.624,0l-0.318,2.852c-0.119-0.066-0.236-0.129-0.363-0.188l-1.363-5.948
+                                    c-0.498-2.834-2.637-4.916-5.753-4.811l-16.686-0.003c0,0,0.883,0.97,0.922,0.97h16.303c1.818,0,3.482,1.171,3.939,3.104
+                                    l1.465,5.874c-0.092-0.002-0.183-0.012-0.273-0.012H19.437c-0.093,0-0.186,0.01-0.276,0.012l0.763-3.052l-0.865-0.785
+                                    l-1.067,4.652c-0.125,0.059-0.245,0.121-0.362,0.188l-0.317-2.852c0,0-1.344-0.589-2.743-0.807l0.001,3.688l2.771,0.149
+                                    c-1.057,0.706-1.733,1.776-1.733,2.983v5.449c0,1.354,0.856,2.543,2.148,3.229v3.663c0,1.238,1.529,2.244,3.419,2.244
+                                    c1.889,0,3.418-1.006,3.418-2.244v-3.045h13.484v3.045c0,1.238,1.527,2.244,3.418,2.244c1.887,0,3.418-1.006,3.418-2.244v-3.399
+                                    c1.613-0.608,2.735-1.942,2.735-3.493v-5.451c0-1.207-0.677-2.276-1.731-2.981L51.57,28.9C51.565,28.9,51.791,28.18,51.565,26.173
+                                    z M25.183,36.58h-6.17v-2.934h6.17V36.58z M37.654,36.58H26.447v-1.262h11.207V36.58z M37.654,35.007H26.447v-1.262h11.207V35.007
+                                    z M45.087,36.58h-6.17v-2.934h6.17V36.58z"/>
+                                <circle cx="9.3" cy="8.585" r="3.817"/>
+                                <path d="M14.923,18.418l6.647,6.039v-0.003c0.004,0.006,0.005,0.011,0.011,0.011c0.629,0.627,1.65,0.627,2.279,0
+                                    c0.629-0.626,0.625-1.646-0.002-2.277c-0.005,0-0.008-0.004-0.01-0.011l-6.271-6.263c-2.01-2.08-4.641-2.281-4.641-2.281h-7.65
+                                    c-5.479,0.105-5.285,4.126-5.285,4.126v9.389h0.006c-0.001,0.022-0.005,0.049-0.005,0.066c0,0.895,0.723,1.612,1.61,1.612
+                                    c0.89,0,1.61-0.72,1.61-1.612c0-0.02-0.003-0.043-0.005-0.066h0.005v-8.689h1.009L4.216,44.714c0,1.205,0.977,2.183,2.182,2.183
+                                    c1.194,0,2.174-0.978,2.174-2.183L8.567,28.161h0.974v16.573l0.019,0.018c0.012,1.186,0.977,2.143,2.162,2.143
+                                    c1.197,0,2.162-0.971,2.162-2.166l-0.006-26.311H14.923z"/>
+                            </g>
+                        </svg>
+                        </span>
+                        <h4 class="service-heading">Vente/Dépôt</h4>
+                        <p class="text-muted"><b>Vous souhaitez vendre votre véhicule? </b> </br>De la mise en ligne de l’annonce jusqu’à la livraison au client, Haussmann Automobile s’occupe de tout pour vous. La seule chose que vous aurez à faire est de choisir entre nos deux options personnalisées :</p>
+                        <ul class="text-muted list-group">
+                            <li class="list-group-item"><span class="underlined">- Gardiennage + Vente:</span> nous gardons votre voiture dans notre garage afin de vous débarrasser de toute tâche liée à la vente.</li>
+                            <li class="list-group-item"><span class="underlined">- Vente uniquement:</span> vous conservez et utilisez votre véhicule jusqu’à sa vente finale et nous nous chargerons de venir le chercher pour le présenter à nos potentiels acheteurs.</li>
+                        </ul>
+                        <p class="text-muted">Si vous le souhaitez, Haussmann Automobile peut également se charger de la reprise de votre véhicule.</p>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg hidden-md hidden-lg" data-toggle="modal" data-target="#Modal1">
+                          En savoir plus
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Vente/Dépôt</h4>
+                              </div>
+                              <div class="modal-body">
+                                <ul>
+                                    <li>Remise en état du véhicule pour optimiser la vente.</li>
+                                    <li>Prise de photos.</li>
+                                    <li>Création d'une annonce internet sur tous les supports.</li>
+                                    <li>Accès à notre réseau de clients particuliers et pros.</li>
+                                    <li>Présentation du véhicule aux prospects.</li>
+                                    <li>Passage au contrôle technique avant la vente.</li>
+                                    <li>Démarches administratives (cession, non gage, ...).</li>
+                                    <li>Facilités pour l'acheteur (financement, garantie, ...).</li>
+                                    <li>Paiement sécurisé.</li>
+                                    <li>Vente plus rapide et au meilleur prix grâce à notre savoir faire.</li>
+                                </ul>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 service-center">
+                        <span class="fa-stack fa-4x">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 250.993 250.993" style="enable-background:new 0 0 250.993 250.993;" xml:space="preserve">
+                            <path d="M242.697,69.229c-0.878,0-1.778,0.126-2.677,0.373l-10.171,2.802l-10.563-25.729c-2.993-7.289-11.837-13.219-19.717-13.219
+                                h-98.851c-7.879,0-16.724,5.93-19.717,13.219L70.454,72.369L60.41,69.602c-0.899-0.248-1.799-0.373-2.677-0.373
+                                c-4.807,0-8.296,3.672-8.296,8.733v5.996c0,0.262,0.021,0.518,0.039,0.775c-2.324,1.732-4.54,3.643-6.627,5.73
+                                c-11.249,11.249-17.444,26.204-17.444,42.112c0,12.896,4.073,25.167,11.608,35.343L2.611,202.322c-3.481,3.48-3.481,9.124,0,12.605
+                                c1.74,1.741,4.021,2.611,6.302,2.611c2.281,0,4.562-0.87,6.302-2.611l34.404-34.404c10.177,7.536,22.447,11.609,35.343,11.609
+                                c15.908,0,30.864-6.195,42.112-17.444c3.629-3.629,6.724-7.648,9.262-11.956h73.987v12.765c0,5.906,4.805,10.711,10.711,10.711
+                                h13.989c5.906,0,10.711-4.805,10.711-10.711V124.38c0-7.32-2.262-18.786-5.042-25.558l-1.705-4.153h1.292
+                                c5.906,0,10.711-4.805,10.711-10.712v-5.996C250.993,72.901,247.504,69.229,242.697,69.229z M94.112,49.933
+                                c1.79-4.36,7.11-7.927,11.824-7.927h88.418c4.713,0,10.034,3.567,11.824,7.927l15.977,38.919c1.79,4.36-0.602,7.927-5.315,7.927
+                                h-84.277c-1.669-2.21-3.495-4.324-5.487-6.316c-11.249-11.249-26.204-17.444-42.112-17.444c-0.111,0-0.22,0.007-0.331,0.008
+                                L94.112,49.933z M84.962,174.305c-11.146,0-21.626-4.341-29.508-12.223c-7.882-7.881-12.222-18.36-12.222-29.507
+                                s4.341-21.626,12.222-29.508c7.882-7.881,18.361-12.222,29.508-12.222s21.626,4.341,29.508,12.222
+                                c7.882,7.882,12.222,18.361,12.222,29.507c0,11.147-4.34,21.626-12.222,29.508C106.588,169.964,96.109,174.305,84.962,174.305z
+                                 M225.12,138.079c0,2.357-1.928,4.285-4.285,4.285h-30.351c-2.356,0-4.285-1.928-4.285-4.285v-14.566
+                                c0-2.356,1.928-4.285,4.285-4.285h30.351c2.357,0,4.285,1.928,4.285,4.285V138.079z"/>
+                            </svg>
+                        </span>
+                        <h4 class="service-heading">Achat/Recherche Personnalisée</h4>
+                        <p class="text-muted"><b>Vous souhaitez acheter un véhicule? </b></br>
+                        Donnez nous vos critères et vos envies, choisissez parmi notre sélection personnalisée, et reçevez votre voiture directement en bas de chez vous. Non, vous n’aurez rien de plus à faire ! </br>
+                        Haussmann Automobile s’occupe du reste pour vous, de la recherche personnalisée à la livraison du véhicule prêt à rouler.</br></br> Notre service est entièrement sur mesure et vous garantie de reçevoir votre future voiture idéale accompagnée d’un service professionnel, pour le même prix.
+                        </p>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg hidden-md hidden-lg" data-toggle="modal" data-target="#Modal2">
+                          En savoir plus
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Achat/Recherche Personnalisée</h4>
+                              </div>
+                              <div class="modal-body">
+                                <ul>
+                                    <li>Gain de temps.</li>
+                                    <li>Véhicules de qualité au meilleur prix grâce à notre réseau et savoir faire.</li>
+                                    <li>Recherche personnalisée parmi notre réseau de concessionaires, marchants, et clients.</li>
+                                    <li>Vérification complète du véhicule (accidentée, volée, état, ...).</li>
+                                    <li>Livraison à domicile (immatriculée, lavée, plein d'essence).</li>
+                                    <li>Installation de matériel dans la voiture si besoin (traqueur, personnalisation, ...).</li>
+                                    <li>Haussmann Automobile vous garantie le SAV.</li>
+                                </ul>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 service-right">
+                        <span class="fa-stack fa-4x">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;margin-top: -25px;" xml:space="preserve">
+                            <g>
+                            <path style="fill:#010002;" d="M489,122c-4.667-4-18-8.667-40-14l-19-2V60l2.5-0.5c1.667-0.333,3.167-0.5,4.5-0.5h3
+                            c14.667,8,22.333,15.667,23,23h37c-0.667-14.667-10.667-29.333-30-44c-8.667-6.667-22-10.667-40-12V0h-20v25
+                            c-14.667,1.333-27,6.333-37,15c-11.333,10.667-17,24.334-17,41c0,18.667,5.667,32,17,40c8.667,6,21,10.333,37,13v50
+                            c-7.333-0.667-12-2.333-14-5c-1.333-1.333-2.333-3.333-3-6s-1.167-4.833-1.5-6.5s-0.833-2.5-1.5-2.5h-37c0,17.333,6.667,31,20,41
+                            c7.335,6,19.668,9.667,37,11v20h20v-19c22-2,38-7.333,48-16c16-13.333,24-27.333,24-42C502,140.333,497.667,128,489,122z M410,97
+                            c-2.667,0-6-1.333-10-4c-6-2.667-9-7.667-9-15c0-7.335,2.667-12.668,8-16l2-2c0.667-0.667,1.5-1.167,2.5-1.5s3.167-0.833,6.5-1.5
+                            V97z M444,183c-0.667,0.667-2.167,1-4.5,1s-4.5,0.167-6.5,0.5l-3,0.5v-43c10,1.333,17.333,3.333,22,6c5.333,3.333,8,8,8,14
+                            C460,172.667,454.667,179.667,444,183z"/>
+                            <path style="fill:#010002;" d="M394,307h-5l-63-114c-3.333-6-8.333-9-15-9H120c-6.667,0-11.667,3-15,9L42,307h-6
+                            c-6,0-11.833,2.167-17.5,6.5S10,322.667,10,328v102c0,5.333,2.833,10.167,8.5,14.5S30,451,36,451h15v30c0,8.667,3.833,16,11.5,22
+                            s15.833,9,24.5,9h10c8.667,0,15.167-2.833,19.5-8.5s6.5-13.167,6.5-22.5v-30h174v30c0,8.667,3.833,16,11.5,22s15.833,9,24.5,9h10
+                            c8,0,14.333-2.833,19-8.5s7-13.167,7-22.5v-30h25c10.667,0,16-7,16-21V328C410,314,404.667,307,394,307z M89.5,381.5
+                            c-5,5-11,7.5-18,7.5s-13-2.5-18-7.5s-7.5-11-7.5-18s2.5-13,7.5-18s11-7.5,18-7.5s13,2.5,18,7.5s7.5,11,7.5,18
+                            S94.5,376.5,89.5,381.5z M92,307l42-83c2.667-6,7.667-9,15-9h133c6.667,0,11.667,3,15,9l41,83H92z M376.5,381.5
+                            c-5,5-11,7.5-18,7.5s-13-2.5-18-7.5s-7.5-11-7.5-18s2.5-13,7.5-18s11-7.5,18-7.5s13,2.5,18,7.5s7.5,11,7.5,18
+                            S381.5,376.5,376.5,381.5z"/>
+                            </g>
+                            </svg>
+                        </span>
+                        <h4 class="service-heading">Financement/Garantie</h4>
+                        <p class="text-muted"><b>Vous souhaitez faire financer/garantir votre véhicule? </b> </br>Afin d’assurer un service complet et sur mesure, Haussmann Automobile vous offre la possibilité d’un financement et d’une garantie adaptée à vos besoins.</p>
+                        <ul class="text-muted list-group">
+                            <li class="list-group-item"><span class="underlined">- Crédit ou Leasing:</span> via notre partenaire <a href="http://www.cgilesite.com/category/auto/" target="_blank">CGI</a>, leader du marché, nous vous aidons à financer votre véhicule.</li></br>
+                            <li class="list-group-item"><span class="underlined">- Garantie constructeur + <a href="http://www.covea.eu/" target="_blank">Covéa:</a></span> choisissez de faire garantir votre véhicule auprès de son constructeur ou auprès de notre partenaire leader <a href="http://www.covea.eu/" target="_blank">Covéa</a> avec la durée et la couverture de votre choix (moteur + boite + pont + transmission, ou complète).</li>
+                        </ul>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg hidden-md hidden-lg" data-toggle="modal" data-target="#Modal3">
+                          En savoir plus
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Financement/Garantie</h4>
+                              </div>
+                              <div class="modal-body">
+                                <ul>
+                                    <li>Possibilité de crédit ou leasing pour votre prochaine voiture via notre partenaire CGI.</li>
+                                    <li><a href="http://www.cgilesite.com/category/auto/" target="_blank">CGI:</a> expert et leader du financement depuis 50 ans, partenaire crédit des plus grandes marques (Porsche, Volvo).</li>
+                                    <li>Haussmann Automobile se charge de l'ensemble des démarches pour l'obtention du crédit.</li>
+                                    <li>Garantie constructeur + extension.</li>
+                                    <li>Garantie via notre partenaire <a href="http://www.covea.eu/" target="_blank">Covéa:</a> groupe assureur possédant les plus grandes marques du marché telles que MMA, MAAF, ou encore GMF. </li>
+                                    <li>Prise en charge du véhicule directement en concession sans avancer de frais.</li>
+                                    <li>Plusieurs durées de garanties possibles.</li>
+                                    <li>Plusieurs types de garanties possibles (moteur + boite + pont + transmission, ou garantie complète).</li>
+                                </ul>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center hidden-xs hidden-sm row-btn">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Modal1">
+                              En savoir plus
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Modal2">
+                              En savoir plus
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Modal3">
+                              En savoir plus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voitures à Vendre-->
+        <section id="portfolio">
+            <div id="first" class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Voitures à Vendre</h2>
+                        <h3 class="section-subheading text-muted">Découvrez nos voitures à vendre.</h3>
+                    </div>
+                </div>
+
+                <div class="row isotope-grid">
+                  {% for car in voitures_a_vendre %}
+                  {% if car.index %}
+                    <div class="col-lg-4 col-md-4 col-sm-6 portfolio-item" data-price="{{ car.prix }}">
+                        <a href="#portfolioModal{{ car.id }}" class="portfolio-link" data-toggle="modal">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    width="60px" height="60px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;"  fill="#fff"xml:space="preserve">
+                                    <g id="_x38__3_">
+                                        <path d="M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306s306-137.012,306-306S475.008,0,306,0z M306,573.75
+                                        C158.125,573.75,38.25,453.875,38.25,306C38.25,158.125,158.125,38.25,306,38.25c147.875,0,267.75,119.875,267.75,267.75
+                                        C573.75,453.875,453.875,573.75,306,573.75z M420.75,286.875h-95.625V191.25c0-10.557-8.568-19.125-19.125-19.125
+                                        c-10.557,0-19.125,8.568-19.125,19.125v95.625H191.25c-10.557,0-19.125,8.568-19.125,19.125c0,10.557,8.568,19.125,19.125,19.125
+                                        h95.625v95.625c0,10.557,8.568,19.125,19.125,19.125c10.557,0,19.125-8.568,19.125-19.125v-95.625h95.625
+                                        c10.557,0,19.125-8.568,19.125-19.125C439.875,295.443,431.307,286.875,420.75,286.875z"/>
+                                    </g>
+                                </svg>
+                                </div>
+                            </div>
+                            <img src="{{ car.photo1.url }}" class="img-responsive" alt="">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>{{ car.titre_vignette }}</h4>
+                            <p class="text-muted">{{ car.prix }} €</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                <a href="voitures-a-vendre.html" type="button" class="btn btn-primary btn-lg">Voir toutes les voitures à vendre</a>
+            </div>
+        </section>
+
+
+        <!-- Voitures Vendues -->
+
+        <section id="portfolio">
+            <div id="second" class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Voitures Vendues</h2>
+                        <h3 class="section-subheading text-muted">Toutes nos voitures déjà vendues.</h3>
+                    </div>
+                </div>
+
+                <div class="row isotope-grid">
+
+                  {% for car in voitures_vendues %}
+                    {% if car.index %}
+                    <div class="col-lg-4 col-md-4 col-sm-6 portfolio-item" data-price="{{ car.prix }}">
+                        <a href="voitures-vendues.html" class="portfolio-link">
+                            <img src="{{ car.photo1.url }}" class="img-responsive" alt="">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>{{ car.titre_vignette }}</h4>
+                            <p class="text-muted">{{ car.prix }} €</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+
+                </div>
+
+                <a href="voitures-vendues.html" type="button" class="btn btn-primary btn-lg">
+                        Voir toutes les voitures vendues
+                </a>
+            </div>
+        </section>
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Nous Contacter</h2>
+                    <h3 class="section-subheading text-muted">Pour toute information supplémentaire, contactez-nous !</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Votre Nom *" id="name" required data-validation-required-message="Veuillez entrer votre nom.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Votre Email *" id="email" required data-validation-required-message="Veuillez entrer votre adresse mail.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Votre Numéro de Téléphone *" id="phone" required data-validation-required-message="Veuillez entrer votre numéro de téléphone.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Votre Message *" id="message" required data-validation-required-message="Veuillez taper un message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Envoyer Mail</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Haussmann Automobile 2015</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://www.facebook.com/HaussmannAutomobile" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+{% for car in voitures_a_vendre %}
+{% if car.index %}
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ car.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>{{ car.titre }}</h2>
+                            <p class="item-intro text-muted">{{ car.prix }} €</p>
+                            <div class="galleria">
+                              {% for photo in car.photo_list %}
+                                <img src="{{ photo.url }}">
+                              {% endfor %}
+                            </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="WhiteColor">
+                            <h3>{{ car.titre }}</h3>
+                              <tr>
+                                <td colspan="2" align="center" valign="top" style="border-top:1px solid #ae0001;"><h4>SPECS</h4></td>
+                              </tr>
+                              <tr>
+                                <td class="table-bor-right">&nbsp;</td></tr>
+                              <tr>
+                                <td align="left" valign="top" class="table-bor-right table-padding-left">
+                                  Année: &nbsp;&nbsp;
+                                  <strong class="mobileblock">{{ car.annee }}</strong>
+                                  <hr class="dividerhr" />Kilométrage: &nbsp;&nbsp;
+                                  <strong class="mobileblock">{{ car.km }}km</strong>
+                                  <hr class="dividerhr" />Type: &nbsp;&nbsp;
+                                  <strong class="mobileblock">{{ car.type_voiture }}</strong>
+                                  <hr class="dividerhr" />Transmission: &nbsp;&nbsp;
+                                  <strong class="mobileblock">{{ car.transmission }}</strong>
+                                  <hr class="dividerhr" />Couleur Extérieur: &nbsp;&nbsp;
+                                  <strong class="mobileblock">{{ car.couleur_ext }}</strong>
+                                  <hr class="dividerhr" />Couleur Intérieur: &nbsp;&nbsp;
+                                  <strong class="mobileblock">{{ car.couleur_int }}</strong>
+                                  <hr class="dividerhr" />
+                                </td>
+
+                                <td align="left" valign="top" class="table-padding-left">
+                                  Moteur: &nbsp;&nbsp;
+                                  <strong  class="mobileblock">{{ car.moteur }}</strong>
+                                  <hr class="dividerhr"  /> Puissance: &nbsp;&nbsp;
+                                  <strong  class="mobileblock">{{ car.puissance }}</strong>
+                                  <hr class="dividerhr"  /> Type Essence: &nbsp;&nbsp;
+                                  <strong  class="mobileblock">{{ car.type_essence }}</strong>
+                                  <hr class="dividerhr"  />
+                                </td>
+                              </tr>
+
+                              <tr>
+                              <tr>
+                                <td colspan="2" align="center" valign="top" style="border-top:1px solid #ae0001;">
+                                  <h5> {{ car.plus|linebreaks }} </h5></td>
+                              </tr>
+                              <tr>
+                                <!-- <td>&nbsp;</td></tr> -->
+                              <tr><td style="border-bottom:1px solid #ae0001" colspan="2"></td></tr>
+                                <td colspan="2" align="center" valign="top"><h4>OPTIONS</h4></td>
+                              </tr>
+                              <tr>
+                              <tr>
+                                <td align="center" valign="top" class="table-bor-right" width="50%"></td>
+                                <td align="center" valign="top"></td>
+                              </tr>
+                              <tr>
+                                <td class="table-bor-right">&nbsp;</td></tr>
+                              <tr>
+                                <td align="left" valign="top" class="table-bor-right table-padding-left">
+                                  {{ car.options_1|linebreaks }}
+                                </td>
+                                <td align="left" valign="top" class="table-padding-left">
+                                  {{ car.options_2|linebreaks }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td></tr>
+                            </table>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+{% endfor %}
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Galleria -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="{% static 'galleria/galleria-1.4.2.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/agency.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+
+    <script type="text/javascript">
+    // isotope-grid
+     //portfolio-item
+
+
+     $container = $('.isotope-grid');
+     $container.isotope({
+        itemSeletor:'.portfolio-item',
+        layoutMode:'masonry',
+
+        masonry: {
+            // columnWidth: 335;
+            isFitWidth: true,
+            gutter: 30,
+        },
+    });
+
+    </script>
+    <script>
+        Galleria.loadTheme("{% static 'galleria/themes/classic/galleria.classic.min.js' %}");
+        Galleria.run('.galleria', {
+            height: parseInt($('.galleria').css('400px')),
+            wait: true
+        });
+    </script>
+
+</body>
+
+</html>

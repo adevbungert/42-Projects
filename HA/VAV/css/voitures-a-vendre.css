@@ -1,0 +1,296 @@
+@charset "UTF-8";
+/*!
+ * Start Bootstrap - 1 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+/* Cappuccino color palette */
+/* Default Color Palette */
+/* Grey Palette */
+/* Boutton En Savoir Plus */
+/* Couleur sélection */
+/* Body police */
+body {
+  overflow-x: hidden;
+  padding-top: 70px;
+  font-family: "Lato", sans-serif;
+  background-image: url(../../img/background/background-2.jpg);
+  color: #333; }
+
+.text-muted {
+  color: #777; }
+
+.text-primary {
+  color: #ae0001; }
+
+a {
+  color: #333333; }
+
+p {
+  font-size: 14px;
+  line-height: 1.75; }
+
+p.large {
+  font-size: 16px; }
+
+h1 {
+  color: #fff;
+  font-size: 35px;
+  font-family: "Lato", sans-serif;
+  letter-spacing: 5px;
+  text-shadow: 0px 2px 2px black;
+  text-transform: uppercase;
+  font-weight: 300; }
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-weight: 400; }
+
+footer {
+  margin: 50px 0; }
+
+.navbar-fixed-top {
+  background-color: #f7f7f7; }
+  .navbar-fixed-top .container {
+    width: 100%; }
+  .navbar-fixed-top .navbar-brand img {
+    width: 9em;
+    height: 5.5em;
+    margin-top: -2.6em; }
+  .navbar-fixed-top .nav li:hover > a {
+    color: #ae0001; }
+  .navbar-fixed-top .nav li a {
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: #333333; }
+    .navbar-fixed-top .nav li a:hover {
+      outline: 0;
+      font-weight: 450;
+      color: #ae0001; }
+  .navbar-fixed-top .navbar-nav .page-scroll {
+    margin: 0 15px 0 15px; }
+  .navbar-fixed-top .navbar-nav .dropdown {
+    position: relative;
+    border: solid 2px #333333;
+    border-radius: 4px;
+    height: 2.5em;
+    width: 11em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    letter-spacing: 1px; }
+    @media (min-width: 767px) {
+      .navbar-fixed-top .navbar-nav .dropdown {
+        margin-top: 0.65em; } }
+    .navbar-fixed-top .navbar-nav .dropdown a {
+      color: black; }
+    .navbar-fixed-top .navbar-nav .dropdown:hover, .navbar-fixed-top .navbar-nav .dropdown:focus {
+      background-color: #fff;
+      color: #ae0001; }
+  .navbar-fixed-top .navbar-nav .dropdown-menu a {
+    font-size: 1em;
+    text-transform: none;
+    color: #333333; }
+    .navbar-fixed-top .navbar-nav .dropdown-menu a:hover, .navbar-fixed-top .navbar-nav .dropdown-menu a:focus {
+      background-color: #f7f7f7;
+      color: #ae0001;
+      font-weight: 450; }
+  .navbar-fixed-top .navbar-nav .open > a:focus, .navbar-fixed-top .navbar-nav .open > a:hover {
+    background-color: transparent;
+    color: #ae0001; }
+  .navbar-fixed-top .navbar-nav span {
+    padding-right: 2px; }
+  .navbar-fixed-top .navbar-nav .button {
+    margin: 10px 0 10px 15px;
+    border: 2px solid black;
+    width: 170px;
+    padding-left: 10px;
+    border-radius: 5px !important; }
+    .navbar-fixed-top .navbar-nav .button li {
+      margin: 4px 2px 4px 2px; }
+
+/* Color button dropdown */
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: black; }
+  .navbar-inverse .navbar-nav > li > a:focus:hover {
+    color: #ae0001; }
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: black; }
+.navbar-inverse .navbar-toggle:hover > .icon-bar, .navbar-inverse .navbar-toggle:focus > .icon-bar {
+  background-color: #fff; }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: transparent !important; }
+
+.btn-primary {
+  background-color: #ae0001;
+  border: none; }
+  .btn-primary:hover {
+    background-color: #be3233; }
+
+.page-header {
+  border-bottom: 1px solid #ae0001;
+  text-align: center; }
+
+.container {
+  width: 95%; }
+
+.row .portfolio-link .portfolio-hover {
+  position: absolute;
+  width: 92.3%;
+  height: 72%;
+  opacity: 0;
+  background: rgba(51, 51, 51, 0.5);
+  border-bottom: #ae0001 7px solid;
+  -webkit-transition: all ease .5s;
+  -moz-transition: all ease .5s;
+  transition: all ease .5s; }
+  .row .portfolio-link .portfolio-hover .portfolio-hover-content {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    margin-top: -12px;
+    text-align: center;
+    font-size: 250%;
+    color: #fff; }
+    .row .portfolio-link .portfolio-hover .portfolio-hover-content i {
+      margin-top: -30px;
+      letter-spacing: 1px;
+      text-shadow: 0px 2px 2px black;
+      font-weight: 300;
+      text-transform: none;
+      font-style: normal; }
+.row .portfolio-link .portfolio-hover:hover {
+  opacity: 1; }
+
+.portfolio-modal .modal-content {
+  padding: 100px 0;
+  margin: 5% auto;
+  width: 80%;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  text-align: center;
+  background-clip: border-box;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: white; }
+  .portfolio-modal .modal-content .col-lg-8 {
+    width: 80%; }
+  .portfolio-modal .modal-content .col-lg-offset-2 {
+    margin-left: 10%; }
+  .portfolio-modal .modal-content .row {
+    margin: 0px; }
+  .portfolio-modal .modal-content .container {
+    width: 100%; }
+
+.portfolio-modal .modal-content h2 {
+  font: "Lato", sans-serif;
+  margin-bottom: 15px;
+  font-size: 2em;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  word-spacing: 4px; }
+
+.portfolio-modal .modal-content table {
+  border-spacing: 2px;
+  margin-bottom: 5%; }
+  .portfolio-modal .modal-content table .table-bor-right {
+    border-right: 1px solid #ae0001; }
+  .portfolio-modal .modal-content table .table-padding-left {
+    padding: 0 20px; }
+  .portfolio-modal .modal-content table tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit; }
+  .portfolio-modal .modal-content table .dividerhr {
+    border-top: 1px solid #fff;
+    height: 1px;
+    color: #fff;
+    opacity: 0.5;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0; }
+
+.galleria {
+  height: 400px; }
+
+.portfolio-modal .modal-content p.item-intro {
+  margin: 0px 0 5px;
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-style: italic; }
+
+.portfolio-modal .modal-content ul.list-inline {
+  margin-top: 0;
+  margin-bottom: 30px; }
+
+.portfolio-modal .modal-content img {
+  margin-bottom: 30px; }
+
+.portfolio-modal .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  cursor: pointer; }
+
+.portfolio-modal .close-modal:hover {
+  opacity: .3; }
+
+.portfolio-modal .close-modal .lr {
+  z-index: 1051;
+  width: 1px;
+  height: 75px;
+  margin-left: 35px;
+  background-color: #222;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.portfolio-modal .close-modal .lr .rl {
+  z-index: 1052;
+  width: 1px;
+  height: 75px;
+  background-color: #222;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.portfolio-modal .modal-backdrop {
+  display: none;
+  opacity: 0; }
+
+.portfolio-item {
+  height: 365px;
+  width: 380px; }
+
+.isotope-grid {
+  position: relative !important; }
+  @media (min-width: 200px) {
+    .isotope-grid {
+      margin-left: -40px; } }
+  @media (min-width: 350px) {
+    .isotope-grid {
+      margin-left: -28px; } }
+  @media (min-width: 400px) {
+    .isotope-grid {
+      margin-left: -8px; } }
+  @media (min-width: 440px) {
+    .isotope-grid {
+      margin: 0 auto !important; } }
+
+/*# sourceMappingURL=voitures-a-vendre.css.map */
