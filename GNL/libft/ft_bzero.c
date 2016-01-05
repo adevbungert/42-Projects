@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:14:40 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/14 10:18:16 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/30 15:26:51 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_bzero(void *s, size_t n)
 {
 	char	*ptr;
 
-	ptr = s;
+	ptr = (char *)s;
 	while (n-- > 0)
 	{
 		*ptr = 0;

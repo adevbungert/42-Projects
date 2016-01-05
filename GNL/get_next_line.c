@@ -6,7 +6,7 @@
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:14:13 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/30 13:14:44 by abungert         ###   ########.fr       */
+/*   Updated: 2015/12/30 15:00:24 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static t_list_gnl	*lst_gnl_new(int fd)
 	if (!(link = (t_list_gnl *)malloc(sizeof(t_list_gnl))))
 		return (NULL);
 	link->fd = fd;
-	if (!(link->cont = ft_strnew(BUFF_SIZE + 1)))
+	if (!(link->str = ft_strnew(BUFF_SIZE + 1)))
 		return (NULL);
-	ret = read(fd, link->cont, BUFF_SIZE);
+	ret = read(fd, link->str, BUFF_SIZE);
 	if (ret == -1)
 		return (NULL);
 	link->next = NULL;
@@ -47,21 +47,20 @@ static t_list_gnl	*check_fd(t_list_gnl *first, int fd)
 	return (link);
 }
 
-static t_list_gnl	*put_in_line(t_list_gnl *link, char **line, char *end)
+static void			put_in_line(t_list_gnl *link, char **line, char *end)
 {
 	char	*tmp1;
 	char	*tmp2;
 	char	*tmp3;
 
 	tmp1 = *line;
-	tmp2 = ft_strsub(link->cont, 0, end - link->cont);
-	tmp3 = ft_strsub(link->cont, (end - link->cont) + 1, ft_strlen(link->cont));
+	tmp2 = ft_strsub(link->str, 0, end - link->str);
+	tmp3 = ft_strsub(link->str, (end - link->str) + 1, ft_strlen(link->str));
 	*line = ft_strjoin(*line, tmp2);
 	ft_memdel((void **)&tmp1);
 	ft_memdel((void **)&tmp2);
-	ft_memdel((void **)&(link->cont));
-	link->cont = tmp3;
-	return (link);
+	ft_memdel((void **)&(link->str));
+	link->str = tmp3;
 }
 
 static int			check_line(int fd, t_list_gnl *link, char **line)
@@ -74,19 +73,19 @@ static int			check_line(int fd, t_list_gnl *link, char **line)
 	size = 1;
 	while (size > 0)
 	{
-		if ((end = ft_strchr(link->cont, '\n')))
+		if ((end = ft_strchr(link->str, '\n')))
 		{
-			link = put_in_line(link, line, end);
+			put_in_line(link, line, end);
 			return (1);
 		}
 		tmp1 = *line;
-		*line = ft_strjoin(*line, link->cont);
+		*line = ft_strjoin(*line, link->str);
 		ft_memdel((void **)&tmp1);
-		len = ft_strlen(link->cont);
-		ft_memdel((void **)&(link->cont));
-		if (!(link->cont = ft_strnew(BUFF_SIZE + 1)))
+		len = ft_strlen(link->str);
+		ft_memdel((void **)&(link->str));
+		if (!(link->str = ft_strnew(BUFF_SIZE + 1)))
 			return (-1);
-		size = read(fd, link->cont, BUFF_SIZE);
+		size = read(fd, link->str, BUFF_SIZE);
 		if (!len && !size)
 			return (0);
 	}

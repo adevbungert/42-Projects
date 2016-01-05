@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/07 10:41:20 by abungert          #+#    #+#             */
-/*   Updated: 2015/12/08 10:16:46 by abungert         ###   ########.fr       */
+/*   Created: 2015/11/24 18:32:42 by abungert          #+#    #+#             */
+/*   Updated: 2015/12/30 15:28:36 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strnew(size_t size)
 {
-	char	*string;
+	char	*str;
 
-	if (s1 != NULL && s2 != NULL)
+	if (!(str = (char *)malloc(size + 1)))
+		return (NULL);
+	else
 	{
-		string = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1);
-		if (string != NULL)
-		{
-			string = ft_strcpy(string, s1);
-			return (ft_strcat(string, (char *)s2));
-		}
+		ft_bzero(str, size + 1);
+		return (str);
 	}
-	return (NULL);
 }
