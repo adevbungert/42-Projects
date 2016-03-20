@@ -29,5 +29,7 @@ typedef struct		s_lst
 }					t_lst;
 
 int			see_key();
+t_lst		*init_list(int ac, char **av);
+void		print_lst(t_lst *base);
 
 #endif

@@ -1,6 +1,7 @@
 NAME = ft_select
 
-FILES = main.c
+FILES = main.c \
+		lst_manip.c
 
 SRC = $(addprefix srcs/, $(FILES))
 OBJ = $(SRC:.c=.o)
