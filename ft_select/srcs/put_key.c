@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:54:05 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 18:24:10 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/21 19:22:44 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		press_arrow(t_select *params, char key)
 			params->curs_y++;
 	}
 	else if (key == 65)
-	{	
+	{
 		if (params->curs_y == 1)
 			params->curs_y = params->size_list;
 		else

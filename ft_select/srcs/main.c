@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 13:39:33 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 17:03:25 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/21 19:26:40 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int				main(int ac, char **av)
 	get_key(params);
 	if (restore_term() == -1)
 		return (-1);
+	free_lst(&params);
 	return (0);
 }

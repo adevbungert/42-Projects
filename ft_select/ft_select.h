@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 15:15:12 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 18:12:37 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/21 19:24:40 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,20 @@ typedef struct		s_select
 	int				size_list;
 }					t_select;
 
-int			see_key();
-t_select	*init_list(int ac, char **av);
-void		print_lst(t_select *params);
-int			init_term(void);
-int			restore_term(void);
-void		fputs(char *res);
-int			get_key(t_select *params);
-void		fputs(char *res);
-void		fmove(t_select *params);
-void		print_with_effect(t_select *params, t_lst *elem);
-void		press_arrow(t_select *params, char key);
-void		press_enter(t_select *params);
-void		press_space(t_select *params);
-t_lst		*get_current_elem(t_select *params);
-void		return_selected(t_select *params);
+int					see_key();
+t_select			*init_list(int ac, char **av);
+void				print_lst(t_select *params);
+int					init_term(void);
+int					restore_term(void);
+void				fputs(char *res);
+int					get_key(t_select *params);
+void				fputs(char *res);
+void				fmove(t_select *params);
+void				print_with_effect(t_select *params, t_lst *elem);
+void				press_arrow(t_select *params, char key);
+void				press_enter(t_select *params);
+void				press_space(t_select *params);
+t_lst				*get_current_elem(t_select *params);
+void				return_selected(t_select *params);
 
 #endif

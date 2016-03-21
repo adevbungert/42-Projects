@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:36:19 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 19:13:44 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/21 19:23:58 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void			free_lst(t_select **params)
 {
-	t_lst	*next;
-	t_lst	*tmp;
-	t_lst	*base;
+	t_lst		*next;
+	t_lst		*tmp;
+	t_lst		*base;
 
 	base = (*params)->list;
 	tmp = base->next;
-	while(tmp != base)
+	while (tmp != base)
 	{
 		next = tmp->next;
 		ft_memdel((void **)tmp);
@@ -31,9 +31,9 @@ void			free_lst(t_select **params)
 
 void			return_selected(t_select *params)
 {
-	t_lst	*tmp;
-	t_lst	*base;
-	int		space;
+	t_lst		*tmp;
+	t_lst		*base;
+	int			space;
 
 	base = params->list;
 	tmp = base->next;
@@ -56,7 +56,7 @@ void			print_lst(t_select *params)
 {
 	t_lst		*elem;
 	t_lst		*base;
-	
+
 	fputs("cl");
 	base = params->list;
 	elem = base->next;
@@ -70,7 +70,7 @@ void			print_lst(t_select *params)
 
 static void		add_elem(t_lst *base, char *av)
 {
-	t_lst	*new_elem;
+	t_lst		*new_elem;
 
 	new_elem = malloc(sizeof(*new_elem));
 	if (new_elem)
@@ -84,7 +84,7 @@ static void		add_elem(t_lst *base, char *av)
 	}
 }
 
-t_select	*init_list(int ac, char **av)
+t_select		*init_list(int ac, char **av)
 {
 	t_lst		*base;
 	t_select	*params;
