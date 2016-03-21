@@ -1,7 +1,23 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abungert <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/03/21 15:48:44 by abungert          #+#    #+#              #
+#    Updated: 2016/03/21 16:50:41 by abungert         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = ft_select
 
 FILES = main.c \
-		lst_manip.c
+		lst_manip.c \
+		term.c \
+		utils.c \
+		get_key.c \
+		put_key.c
 
 SRC = $(addprefix srcs/, $(FILES))
 OBJ = $(SRC:.c=.o)

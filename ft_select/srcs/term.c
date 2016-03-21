@@ -1,35 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   term.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/16 13:39:33 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 17:03:25 by abungert         ###   ########.fr       */
+/*   Created: 2016/03/21 10:06:46 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/21 15:53:37 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_select.h"
 
-int				main(int ac, char **av)
+int		restore_term(void)
 {
-	char		*name_term;
-	t_select	*params;
+	struct termios	term;
 
-	if (ac <= 0)
-		return (0);
-	if (!(params = init_list(ac, av)))
+	if (tcgetattr(0, &term) == -1)
 		return (-1);
-	if ((name_term = getenv("TERM")) == NULL)
+	term.c_lflag |= ICANON;
+	term.c_lflag |= ECHO;
+	if (tcsetattr(0, 0, &term) == -1)
 		return (-1);
-	if (!(tgetent(NULL, name_term)))
+	fputs("te");
+	fputs("ve");
+	return (0);
+}
+
+int		init_term(void)
+{
+	struct termios term;
+
+	if (tcgetattr(0, &term) == -1)
 		return (-1);
-	if (init_term() == -1)
+	term.c_lflag &= ~ICANON;
+	term.c_lflag &= ~ECHO;
+	term.c_cc[VMIN] = 1;
+	term.c_cc[VTIME] = 0;
+	if (tcsetattr(0, 0, &term) == -1)
 		return (-1);
-	print_lst(params);
-	get_key(params);
-	if (restore_term() == -1)
-		return (-1);
+	fputs("ti");
+	fputs("vi");
 	return (0);
 }
