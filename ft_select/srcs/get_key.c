@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:23:41 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 18:31:28 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:54:39 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int		is_arrow(char *key)
 
 static int		is_esc(char *key)
 {
-	if (key[0] == 27 && key[2] == 0)
+	if (key[0] == 27 && key[1] == 0 && key[2] == 0)
 		return (1);
 	else
 		return (0);
@@ -29,7 +29,7 @@ static int		is_esc(char *key)
 
 static int		is_space(char *key)
 {
-	if (key[0] == 32 && key[2] == 0)
+	if (key[0] == 32 && key[1] == 0 && key[2] == 0)
 		return (1);
 	else
 		return (0);
@@ -47,18 +47,19 @@ int				get_key(t_select *params)
 {
 	char		*key;
 
-	if (!(key = malloc(4)))
-		return (-1);
+	key = ft_strnew(4);
 	while (read(0, key, 3))
 	{
 		if (is_arrow(key))
 			press_arrow(params, key[2]);
-		if (is_enter(key))
+		else if (is_enter(key))
 			press_enter(params);
-		if (is_esc(key))
+		else if (is_esc(key))
 			break ;
-		if (is_space(key))
+		else if (is_space(key))
 			press_space(params);
+		else if (key[0] == 127 || key[0] == 8)
+			press_delete(params);
 		ft_bzero(key, 4);
 	}
 	return (0);

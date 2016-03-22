@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:54:05 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 19:22:44 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:55:25 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,19 @@ void		press_space(t_select *params)
 	current = get_current_elem(params);
 	current->selected = current->selected ? 0 : 1;
 	press_arrow(params, key);
+}
+
+void		press_delete(t_select *params)
+{
+	t_lst	*current;
+	t_lst	*prev;
+	t_lst	*next;
+
+	current = get_current_elem(params);
+	prev = current->prev;
+	next = current->next;
+	ft_memdel((void **)&current);
+	prev->next = next;
+	next->prev = prev;
+	print_lst(params);
 }

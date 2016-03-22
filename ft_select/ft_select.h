@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 15:15:12 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 19:24:40 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:41:11 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,9 @@ void				press_enter(t_select *params);
 void				press_space(t_select *params);
 t_lst				*get_current_elem(t_select *params);
 void				return_selected(t_select *params);
+void				free_lst(t_select **params);
+void				ft_signal(void);
+void				sighandler(int signum);
+void				press_delete(t_select *params);
 
 #endif

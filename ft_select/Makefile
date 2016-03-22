@@ -6,7 +6,7 @@
 #    By: abungert <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/21 15:48:44 by abungert          #+#    #+#              #
-#    Updated: 2016/03/21 16:50:41 by abungert         ###   ########.fr        #
+#    Updated: 2016/03/22 09:54:36 by abungert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ FILES = main.c \
 		term.c \
 		utils.c \
 		get_key.c \
-		put_key.c
+		put_key.c \
+		signals.c
 
 SRC = $(addprefix srcs/, $(FILES))
 OBJ = $(SRC:.c=.o)

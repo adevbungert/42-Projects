@@ -6,7 +6,7 @@
 /*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:36:19 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 19:23:58 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:54:32 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ void			print_lst(t_select *params)
 	fputs("cl");
 	base = params->list;
 	elem = base->next;
+	if (elem == base)
+	{
+		restore_term();
+		free_lst(&params);
+		exit(0);
+	}
 	while (elem != base)
 	{
 		print_with_effect(params, elem);
