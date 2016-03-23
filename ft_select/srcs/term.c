@@ -6,7 +6,7 @@
 /*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 10:06:46 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 11:07:24 by antoinebungert   ###   ########.fr       */
+/*   Updated: 2016/03/23 11:44:28 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int					restore_term(t_select *params)
 		return (-1);
 	fputs("te");
 	fputs("ve");
+	if (params->returned)
+		return_selected(params);
 	free_lst(&params);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_key.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:35:24 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/21 17:38:09 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/23 12:00:02 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,4 @@ t_lst			*get_current_elem(t_select *params)
 	}
 	current = tmp;
 	return (current);
-}
-
-void			print_with_effect(t_select *params, t_lst *elem)
-{
-	t_lst		*current;
-
-	current = get_current_elem(params);
-	if (elem->selected)
-		fputs("mr");
-	if (elem == current)
-		fputs("us");
-	ft_printf("%s\n", elem->value);
-	fputs("me");
-	fputs("ue");
 }

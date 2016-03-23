@@ -6,7 +6,7 @@
 /*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:36:19 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 11:25:17 by antoinebungert   ###   ########.fr       */
+/*   Updated: 2016/03/23 11:59:59 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,28 +48,6 @@ void			return_selected(t_select *params)
 		}
 		tmp = tmp->next;
 	}
-	free_lst(&params);
-}
-
-void			print_lst(t_select *params)
-{
-	t_lst		*elem;
-	t_lst		*base;
-
-	fputs("cl");
-	base = params->list;
-	elem = base->next;
-	if (elem == base)
-	{
-		handle_inter();
-		exit(0);
-	}
-	while (elem != base)
-	{
-		print_with_effect(params, elem);
-		elem = elem->next;
-	}
-	fmove(params);
 }
 
 static void		add_elem(t_lst *base, char *av)
@@ -109,5 +87,6 @@ t_select		*init_list(int ac, char **av, t_select *params)
 	params->size_list = size;
 	params->curs_y = 1;
 	params->col_n = 0;
+	params->returned = 0;
 	return (params);
 }

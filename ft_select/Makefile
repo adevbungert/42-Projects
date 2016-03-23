@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abungert <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/21 15:48:44 by abungert          #+#    #+#              #
-#    Updated: 2016/03/22 09:54:36 by abungert         ###   ########.fr        #
+#    Updated: 2016/03/23 12:00:19 by antoinebungert   ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ FILES = main.c \
 		get_key.c \
 		put_key.c \
 		signals.c \
-		window_size.c
+		window_size.c \
+		print.c
 
 SRC = $(addprefix srcs/, $(FILES))
 OBJ = $(SRC:.c=.o)

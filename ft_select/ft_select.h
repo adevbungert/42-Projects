@@ -6,7 +6,7 @@
 /*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 15:15:12 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 11:11:51 by antoinebungert   ###   ########.fr       */
+/*   Updated: 2016/03/23 11:43:33 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct		s_select
 	int				win_col;
 	int				win_row;
 	int				col_n;
+	int 			returned;
 }					t_select;
 
 int					ft_select(int ac, char **av, t_select *params);

@@ -6,7 +6,7 @@
 /*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:54:05 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 11:29:05 by antoinebungert   ###   ########.fr       */
+/*   Updated: 2016/03/23 11:44:03 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void		press_arrow(t_select *params, char key)
 
 void		press_enter(t_select *params)
 {
+	params->returned = 1;
 	restore_term(params);
-	return_selected(params);
 	exit(0);
 }
 
