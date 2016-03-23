@@ -14,8 +14,7 @@
 
 static int		myoutc(int c)
 {
-	ft_putchar(c);
-	return (0);
+	return(write(2, &c, 1));
 }
 
 void			fputs(char *res)

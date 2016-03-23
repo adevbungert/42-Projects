@@ -3,38 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 13:39:33 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/22 13:05:58 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/23 11:12:02 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_select.h"
 
+int			ft_select(int ac, char **av, t_select *params)
+{
+	fputs("cl");
+	if (!(params = init_list(ac, av, params)))
+		return (-1);	
+	ft_get_col_n(params);
+	ft_check_size(params);
+	save_term(params, 0);
+	get_key(params);
+	return (0);
+}
+
 int				main(int ac, char **av)
 {
-	char		*name_term;
-	t_select	*params;
+	t_select	params;
 
+	params.list = NULL;
 	if (ac <= 1)
 		return (-1);
-	if ((name_term = getenv("TERM")) == NULL)
-	{
-		ft_printf("Cannot find environment TERM\n");
-		return (-1);
-	}
-	if (tgetent(NULL, name_term) != 1)
-		return (-1);
-	if (init_term() == -1)
-		return (-1);
-	if (!(params = init_list(ac, av)))
-		return (-1);
 	ft_signal();
-	print_lst(params);
-	get_key(params);
-	if (restore_term() == -1)
+	if (init_term(&params) == -1)
 		return (-1);
-	free_lst(&params);
+	if (ft_select(ac, av, &params) == -1)
+		return (-1);	
+	if (restore_term(&params) == -1)
+		return (-1);
 	return (0);
 }

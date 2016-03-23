@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_select.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 15:15:12 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/22 13:41:11 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/23 11:11:51 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,29 @@ typedef struct		s_lst
 {
 	char			*value;
 	int				selected;
+	int				len;
 	struct s_lst	*next;
 	struct s_lst	*prev;
 }					t_lst;
 
 typedef struct		s_select
 {
+	struct termios	term;
 	int				curs_y;
 	t_lst			*list;
 	int				size_list;
+	int				win_col;
+	int				win_row;
+	int				col_n;
 }					t_select;
 
+int					ft_select(int ac, char **av, t_select *params);
 int					see_key();
-t_select			*init_list(int ac, char **av);
+t_select			*init_list(int ac, char **av, t_select *params);
 void				print_lst(t_select *params);
-int					init_term(void);
-int					restore_term(void);
+int					init_term(t_select *params);
+int					restore_term(t_select *params);
+t_select			*save_term(t_select *params, int i);
 void				fputs(char *res);
 int					get_key(t_select *params);
 void				fputs(char *res);
@@ -55,5 +62,9 @@ void				free_lst(t_select **params);
 void				ft_signal(void);
 void				sighandler(int signum);
 void				press_delete(t_select *params);
+int					ft_check_size(t_select *params);
+void				ft_get_col_n(t_select *params);
+void				ft_resize(void);
+void				handle_inter();
 
 #endif

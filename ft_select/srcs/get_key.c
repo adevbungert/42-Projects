@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:23:41 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/22 13:54:39 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/23 10:52:29 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,19 @@ int				get_key(t_select *params)
 	key = ft_strnew(4);
 	while (read(0, key, 3))
 	{
-		if (is_arrow(key))
-			press_arrow(params, key[2]);
-		else if (is_enter(key))
-			press_enter(params);
-		else if (is_esc(key))
-			break ;
-		else if (is_space(key))
-			press_space(params);
-		else if (key[0] == 127 || key[0] == 8)
-			press_delete(params);
+		if (ft_check_size(params))
+		{
+			if (is_arrow(key))
+				press_arrow(params, key[2]);
+			else if (is_enter(key))
+				press_enter(params);
+			else if (is_esc(key))
+				break ;
+			else if (is_space(key))
+				press_space(params);
+			else if (key[0] == 127 || key[0] == 8)
+				press_delete(params);
+		}
 		ft_bzero(key, 4);
 	}
 	return (0);

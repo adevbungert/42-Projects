@@ -18,7 +18,8 @@ FILES = main.c \
 		utils.c \
 		get_key.c \
 		put_key.c \
-		signals.c
+		signals.c \
+		window_size.c
 
 SRC = $(addprefix srcs/, $(FILES))
 OBJ = $(SRC:.c=.o)

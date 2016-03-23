@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:54:05 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/22 13:55:25 by abungert         ###   ########.fr       */
+/*   Updated: 2016/03/23 11:29:05 by antoinebungert   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		press_arrow(t_select *params, char key)
 
 void		press_enter(t_select *params)
 {
-	restore_term();
+	restore_term(params);
 	return_selected(params);
 	exit(0);
 }
@@ -58,8 +58,13 @@ void		press_delete(t_select *params)
 	current = get_current_elem(params);
 	prev = current->prev;
 	next = current->next;
+	ft_memdel((void **)&current->value);
 	ft_memdel((void **)&current);
 	prev->next = next;
 	next->prev = prev;
+	ft_get_col_n(params);
+	params->size_list -= 1;
+	if (params->curs_y > params->size_list)
+		params->curs_y--;
 	print_lst(params);
 }
