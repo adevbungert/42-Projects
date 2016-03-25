@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window_size.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/24 12:09:17 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/24 12:10:12 by abungert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_select.h"
 
 int					ft_check_size(t_select *params)
-{	
-	if (params->win_row - 2 < params->size_list || params->win_col - 2 < params->col_n)
+{
+	if (params->win_row - 2 < params->size_list
+			|| params->win_col - 2 < params->col_n)
 	{
 		fputs("cl");
 		ft_putendl_fd("Windows too small!", 2);
@@ -30,10 +43,10 @@ void				ft_resize(void)
 	ft_check_size(params);
 }
 
-void			ft_get_col_n(t_select *params)
+void				ft_get_col_n(t_select *params)
 {
-	t_lst		*tmp;
-	t_lst		*base;
+	t_lst			*tmp;
+	t_lst			*base;
 
 	base = params->list;
 	tmp = base->next;

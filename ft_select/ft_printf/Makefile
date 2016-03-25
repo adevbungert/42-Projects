@@ -6,7 +6,7 @@
 #    By: abungert <abungert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/05 14:22:12 by abungert          #+#    #+#              #
-#    Updated: 2016/01/29 12:22:32 by abungert         ###   ########.fr        #
+#    Updated: 2016/03/24 16:19:58 by abungert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,18 +62,19 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBFT)
-	cp $(LIBFTA) $(NAME)
-	$(AR) r $(NAME) $(OBJ)
+	@cp $(LIBFTA) $(NAME)
+	@$(AR) r $(NAME) $(OBJ)
 
 %.o: %.c
-	$(CC) -o $@ $(CFLAGS) -I $(INC) -c $<
+	@$(CC) -o $@ $(CFLAGS) -I $(INC) -c $<
+	@echo "Building: \033[34m$@\033[0m"
 
 clean:
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
 	@make -C $(LIBFT) clean
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 	@make -C $(LIBFT) fclean
 
 

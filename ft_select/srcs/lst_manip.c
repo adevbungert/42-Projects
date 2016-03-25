@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_manip.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/21 14:36:19 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 11:59:59 by antoinebungert   ###   ########.fr       */
+/*   Created: 2016/03/24 12:07:36 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/24 12:07:41 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

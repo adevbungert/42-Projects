@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/24 12:10:28 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/24 12:10:46 by abungert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_select.h"
 
 static void		print_selected(t_lst *elem)
 {
 	fputs("so");
-	ft_putstr_fd("\e[91m", 2);
+	ft_putstr_fd("\033[91m", 2);
 	ft_putendl_fd(elem->value, 2);
-	ft_putstr_fd("\e[0m", 2);
+	ft_putstr_fd("\033[0m", 2);
 	fputs("se");
 }
 
 static void		print_current(t_lst *elem)
 {
 	fputs("us");
-	ft_putstr_fd("\e[91m", 2);
+	ft_putstr_fd("\033[91m", 2);
 	ft_putendl_fd(elem->value, 2);
-	ft_putstr_fd("\e[0m", 2);
+	ft_putstr_fd("\033[0m", 2);
 	fputs("ue");
 }
 
@@ -22,9 +34,9 @@ static void		print_selected_current(t_lst *elem)
 {
 	fputs("us");
 	fputs("so");
-	ft_putstr_fd("\e[95m", 2);
+	ft_putstr_fd("\033[95m", 2);
 	ft_putendl_fd(elem->value, 2);
-	ft_putstr_fd("\e[0m", 2);
+	ft_putstr_fd("\033[0m", 2);
 	fputs("se");
 	fputs("ue");
 }

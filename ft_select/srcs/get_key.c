@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/21 15:23:41 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 12:13:25 by antoinebungert   ###   ########.fr       */
+/*   Created: 2016/03/24 12:05:28 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/24 12:06:09 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int				get_key(t_select *params)
 				press_enter(params);
 			else if (is_space(key))
 				press_space(params);
-			else if (key[0] == 127 || key[0] == 8)
+			else if (key[0] == 127 || key[0] == 126 || key[0] == 8)
 				press_delete(params);
 		}
 		ft_bzero(key, 4);

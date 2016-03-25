@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   term.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/21 10:06:46 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 11:44:28 by antoinebungert   ###   ########.fr       */
+/*   Created: 2016/03/24 12:07:53 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/24 12:08:46 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int					restore_term(t_select *params)
 
 int					init_term(t_select *params)
 {
-	struct 			winsize win;
+	struct winsize	win;
 	char			*name_term;
 
 	if ((name_term = getenv("TERM")) == NULL)

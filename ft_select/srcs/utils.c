@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/21 15:35:24 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 12:00:02 by antoinebungert   ###   ########.fr       */
+/*   Created: 2016/03/24 14:16:16 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/24 14:17:12 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		myoutc(int c)
 {
-	return(write(2, &c, 1));
+	return (write(2, &c, 1));
 }
 
 void			fputs(char *res)

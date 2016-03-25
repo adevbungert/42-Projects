@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebungert <antoinebungert@student.42.fr>+#+  +:+       +#+        */
+/*   By: abungert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/22 09:50:02 by abungert          #+#    #+#             */
-/*   Updated: 2016/03/23 11:06:21 by antoinebungert   ###   ########.fr       */
+/*   Created: 2016/03/24 12:06:38 by abungert          #+#    #+#             */
+/*   Updated: 2016/03/24 15:52:34 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_select.h"
 
-static void			handle_stop()
+static void			handle_stop(void)
 {
 	t_select		*params;
 	char			cp[2];
@@ -31,7 +31,7 @@ static void			handle_stop()
 	ioctl(0, TIOCSTI, cp);
 }
 
-static void			handle_cont()
+static void			handle_cont(void)
 {
 	t_select		*params;
 
@@ -49,7 +49,7 @@ static void			handle_cont()
 	ft_check_size(params);
 }
 
-void				handle_inter()
+void				handle_inter(void)
 {
 	t_select		*params;
 
@@ -60,28 +60,28 @@ void				handle_inter()
 
 void				sighandler(int signum)
 {
-	if (signum == SIGINT || signum == SIGQUIT || signum == SIGKILL)
-	{
-		handle_inter();
-		exit(0);
-	}
 	if (signum == SIGWINCH)
 		ft_resize();
-	if (signum == SIGTSTP)
+	else if (signum == SIGTSTP)
 		handle_stop();
-	if (signum == SIGCONT)
+	else if (signum == SIGCONT)
 		handle_cont();
-	if (signum == SIGSEGV)
+	else if (signum == SIGSEGV)
 	{
 		handle_inter();
 		ft_printf("Action not supported\nExiting program...\n");
+		exit(0);
+	}
+	else
+	{
+		handle_inter();
 		exit(0);
 	}
 }
 
 void				ft_signal(void)
 {
-	int 			i;
+	int				i;
 
 	i = 1;
 	while (i < 32)
