@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abungert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/26 17:08:43 by dtedgui           #+#    #+#             */
-/*   Updated: 2016/04/27 12:50:06 by abungert         ###   ########.fr       */
+/*   Created: 2016/04/27 15:46:21 by abungert           #+#    #+#             */
+/*   Updated: 2016/04/27 18:40:51 by abungert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		ft_isnumber(char *value)
-{
-	int		i;
-
-	i = 0;
-	while (value[i])
-	{
-		if (!ft_isdigit(value[i]) && value[i] != '-' && value[i] != '+')
-			return (0);
-		i++;
-	}
-	if (ft_strlen(value) == 1)
-		if (value[0] == '-' || value[0] == '+')
-			return (0);
-	return (1);
-}
 
 int		check_duplicate(int nb, int *pile, int length)
 {
@@ -85,6 +68,10 @@ int		add_options(char *options, t_pushswap *data, int *argc, char ***argv)
 			data->verbose = 1;
 		else if (options[i] == 'f')
 			data->fast = 1;
+		else if (options[i] == 's')
+			data->show_moves = 1;
+		else if (options[i] == 'm')
+			data->mute = 1;
 		else
 			return (0);
 		i++;
@@ -92,6 +79,16 @@ int		add_options(char *options, t_pushswap *data, int *argc, char ***argv)
 	(*argc)--;
 	(*argv)++;
 	return (1);
+}
+
+void	final_print(t_pushswap *data)
+{
+	if (data->verbose && data->mute == 0 && data->fast == 0)
+		ft_printf("\nFinal sequence: {green}%s{eoc}\n",
+				ft_strtrim(data->sequence));
+	if (data->show_moves)
+		ft_printf("\nTotal number of moves: {green}%d{eoc}\n",
+				data->nb_of_moves);
 }
 
 int		main(int argc, char **argv)
@@ -117,9 +114,7 @@ int		main(int argc, char **argv)
 	}
 	data->pile_b = (int *)ft_memalloc(sizeof(int));
 	sort_pile(data);
-	if (!data->fast)
-		ft_printf("{red}%s{eoc}", ft_strtrim(data->sequence));
+	final_print(data);
 	ft_putchar('\n');
-	ft_putnbr(data->nb_of_moves);
 	return (0);
 }
