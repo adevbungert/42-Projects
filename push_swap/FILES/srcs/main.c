@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/27 15:46:21 by abungert           #+#    #+#             */
-/*   Updated: 2016/04/27 18:40:51 by abungert          ###   ########.fr       */
+/*   Created: 2016/04/27 15:46:21 by abungert          #+#    #+#             */
+/*   Updated: 2016/04/29 10:33:30 by abungert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int		main(int argc, char **argv)
 	data->sequence = ft_strnew(1);
 	if (ft_strncmp(argv[1], "--", 2) == 0)
 	{
-		if (!add_options(argv[1], data, &argc, &argv))
+		if (!add_options(argv[1], data, &argc, &argv) || argc == 1)
 		{
 			ft_putendl_fd("Error", 2);
 			return (0);
